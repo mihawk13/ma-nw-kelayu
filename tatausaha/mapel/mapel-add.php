@@ -55,8 +55,14 @@ include "../../koneksi.php"; ?>
                           <div class="col-md-4">
                             <!-- FORM KIRI -->
                             <div class="form-group">
-                              <input type="text" id="nama_mapel" class="form-control" placeholder="Nama Mapel" name="nama_mapel" required oninvalid="this.setCustomValidity('nama mapel tidak boleh kosong')" oninput="setCustomValidity('')">
+                              <label>Mata Pelajaran</label>
+                              <input type="text" id="nama_mapel" class="form-control" placeholder="Masukkan Nama Mata Pelajaran" name="nama_mapel" required oninvalid="this.setCustomValidity('nama mapel tidak boleh kosong')" oninput="setCustomValidity('')">
                             </div>
+                            <label>Centang Jika Mata Pelajaran Muatan Lokal</label><br>
+                            <div class="form-check">
+                              <input type="checkbox" id="ml" name="ml" value="1" class="form-check-input">
+                              <label for="ml" class="form-check-label"> Muatan Lokal</label><br>
+                            </div><br>
 
                             <div>
                               <input type="submit" class="btn btn-success" value="SIMPAN" name="simpan">
@@ -68,8 +74,9 @@ include "../../koneksi.php"; ?>
                         if (isset($_POST['simpan'])) {
 
                           $nama_mapel = $_POST['nama_mapel'];
+                          $mulok = $_POST['ml'];
 
-                          mysqli_query($db, "INSERT INTO tb_mapel (nama_mapel) VALUES ('$nama_mapel')") or die($db->error);
+                          mysqli_query($db, "INSERT INTO tb_mapel (nama_mapel,mulok) VALUES ('$nama_mapel','$mulok')") or die($db->error);
                           echo "<script>window.location='mapel.php';</script>";
                         }
                         ?>

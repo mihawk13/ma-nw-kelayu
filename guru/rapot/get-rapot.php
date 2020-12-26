@@ -1,7 +1,7 @@
 <?php
-require('../assets/fpdf/fpdf.php');
-require('../koneksi.php');
-require('../helper.php');
+require('../../assets/fpdf/fpdf.php');
+require('../../koneksi.php');
+require('../../helper.php');
 session_start();
 
 class PDF extends FPDF
@@ -180,9 +180,9 @@ class PDF_1 extends FPDF
     }
 }
 
-$nisn = $_SESSION['username'];
-$thnAjaran = $_POST['thn'];
-$smt = $_POST['smt'];
+$nisn = $_GET['nisn'];
+$thnAjaran = $_SESSION['tahunajaran'];
+$smt = 1;
 
 $query = mysqli_query($db, "SELECT * FROM tb_siswa a INNER JOIN tb_kelas b ON a.kelas = b.id_kelas WHERE a.nisn = '$nisn'");
 $dt = mysqli_fetch_assoc($query);
@@ -190,13 +190,20 @@ $dt = mysqli_fetch_assoc($query);
 $query = mysqli_query($db, "SELECT * FROM tb_data_sekolah");
 $dtSekolah = mysqli_fetch_assoc($query);
 
-$modal = mysqli_query($db, "SELECT * FROM tb_raport WHERE thn_ajaran = '$thnAjaran' AND semester = '$smt' AND nisn = '$nisn'");
+$modal = mysqli_query($db, "SELECT * FROM tb_raport WHERE thn_ajaran = '$_SESSION[tahunajaran]' AND semester = '$smt' AND nisn = '$nisn'");
 $rpt = mysqli_fetch_assoc($modal);
 $id = $rpt['id'];
 
 $spirit = $rpt['a_sikap_spiritual'];
 $sosial = $rpt['a_sikap_sosial'];
 $saran = $rpt['d_saran_saran'];
+$ketPendengaran = $rpt['f_pendengaran'];
+$ketPenglihatan = $rpt['f_penglihatan'];
+$ketGigi = $rpt['f_gigi'];
+
+$ketTinggi = $rpt['e_tinggi_badan'];
+$ketBerat = $rpt['e_berat_badan'];
+$ketLainnya = '';
 
 $sakit = 0;
 $ijin = 0;
@@ -266,7 +273,7 @@ $pdf->Cell(65, 0, $dt['nisn'], 0, 0, 'L');
 
 $pdf->Cell(50, 0, 'Semester', 0, 0, 'L');
 $pdf->Cell(5, 0, ':', 0, 0, 'C');
-$pdf->Cell(25, 0, getSemester($smt), 0, 0, 'L');
+$pdf->Cell(25, 0, 1 . '(Satu)', 0, 0, 'L');
 
 $pdf->ln(7);
 
@@ -503,6 +510,69 @@ $pdf->ln(7);
 $pdf->SetFont('Arial', 'I', 10);
 $pdf->MultiCell(190, 22, $saran, 1, 'L', 1);
 #endregion
+
+#region "E. Ketidakhardiran"
+// $pdf->ln(20);
+// $pdf->SetFont('Arial', 'B', 10);
+// $pdf->Cell(190, 0, 'E. Ketidakhadiran', 0, 0, 'L');
+// $pdf->ln(5);
+
+// $pdf->SetFont('Arial', '', 10);
+// $pdf->Cell(60, 10, 'Sakit', 'TLB', 0, 'L');
+// $pdf->Cell(5, 10, ':', 'TB', 0, 'L');
+// $pdf->Cell(15, 10, $sakit, 'TRB', 0, 'L');
+// $pdf->ln(10);
+// $pdf->Cell(60, 10, 'Ijin', 'TLB', 0, 'L');
+// $pdf->Cell(5, 10, ':', 'TB', 0, 'L');
+// $pdf->Cell(15, 10, $ijin, 'TRB', 0, 'L');
+// $pdf->ln(10);
+// $pdf->Cell(60, 10, 'Tanpa Keterangan', 'TLB', 0, 'L');
+// $pdf->Cell(5, 10, ':', 'TB', 0, 'L');
+// $pdf->Cell(15, 10, $tanpaKeterangan, 'TRB', 0, 'L');
+// $pdf->ln(10);
+#endregion
+
+
+// $pdf->SetY(-80);
+// $pdf->Cell(60, 0, 'Mengetahui', 0, 0, 'C');
+// $pdf->ln(5);
+// $pdf->Cell(60, 0, 'Orang Tua / Wali,', 0, 0, 'C');
+// $pdf->SetY(-45);
+// $pdf->SetFont('Arial', 'UB', 10);
+// $pdf->Cell(60, 0, $waliMurid, 0, 0, 'C');
+
+
+// $pdf->SetFont('Arial', '', 10);
+// // $pdf->SetY(-80);
+// $pdf->SetXY(-77, -80);
+// $pdf->Cell(60, 0, $tglCetak, 0, 0, 'C');
+// $pdf->ln(5);
+// $pdf->SetXY(-77, -75);
+// $pdf->Cell(60, 0, $kelas, 0, 0, 'C');
+// $pdf->SetY(-45);
+// $pdf->SetX(-77);
+// $pdf->SetFont('Arial', 'UB', 10);
+// $pdf->Cell(60, 0, $waliKelas, 0, 0, 'C');
+// $pdf->SetFont('Arial', '', 10);
+// $pdf->SetY(-40);
+// $pdf->SetX(-77);
+// $pdf->Cell(60, 0, 'NIP: ' . $nipWali, 0, 0, 'C');
+
+// $pdf->ln(5);
+
+// $pdf->SetX(-180);
+// $pdf->SetY(-60);
+// $pdf->Cell(190, 0, 'Mengetahui', 0, 0, 'C');
+// $pdf->ln(5);
+// $pdf->Cell(190, 0, 'Kepala Sekolah,.', 0, 0, 'C');
+// $pdf->SetY(-28);
+// $pdf->SetFont('Arial', 'UB', 10);
+// $pdf->Cell(190, 0, $kepsek, 0, 0, 'C');
+
+// $pdf->SetFont('Arial', '', 10);
+// $pdf->SetY(-22);
+// $pdf->Cell(190, 0, 'NIP: ' . $nipkepsek, 0, 0, 'C');
+
 
 
 $pdf->Output('Laporan_Data_Siswa.pdf', 'I');

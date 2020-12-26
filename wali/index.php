@@ -57,7 +57,6 @@
                   <a href="index.php"><i class="fa fa-home"></i> Home </a>
                 </li>
                 <li><a href="rapot.php"><i class="fa fa-clone"></i>Rapot Siswa</a></li>
-                <li><a href="nilai.php"><i class="fa fa-clone"></i>Laporan Nilai</a></li>
               </ul>
             </div><!-- /menu_section -->
           </div><!-- /sidebar menu -->

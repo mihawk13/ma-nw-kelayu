@@ -61,9 +61,14 @@
                               <!-- FORM KIRI -->
                               <input type="hidden" name="id_mapel" value="<?= $r['id']; ?>" required readonly>
                               <div class="form-group">
-                                <label for="nama_mapel">Nama Pelajaran</label>
+                                <label for="nama_mapel">Mata Pelajaran</label>
                                 <input type="text" id="nama_mapel" placeholder="nama pelajaran " name="nama_mapel" class="form-control" value="<?php echo $r['nama_mapel']; ?>" required oninvalid="this.setCustomValidity('nama pelajaran tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
+                              <label>Centang Jika Mata Pelajaran Muatan Lokal</label><br>
+                              <div class="form-check">
+                                <input type="checkbox" id="ml" name="ml" value="1" class="form-check-input" <?= ($r['mulok']==1) ? 'checked' : '' ?>>
+                                <label for="ml" class="form-check-label"> Muatan Lokal</label><br>
+                              </div><br>
                               <div>
                                 <input type="submit" class="btn btn-success" value="SIMPAN" name="simpan">
                               </div>
@@ -75,8 +80,9 @@
                         if (isset($_POST['simpan'])) {
                           $id_mapel     = $_POST['id_mapel'];
                           $nama_mapel   = $_POST['nama_mapel'];
+                          $mulok        = $_POST['ml'];
 
-                          $save = mysqli_query($db, "UPDATE tb_mapel SET nama_mapel='$nama_mapel' WHERE id='$id_mapel' ");
+                          $save = mysqli_query($db, "UPDATE tb_mapel SET nama_mapel='$nama_mapel',mulok='$mulok' WHERE id='$id_mapel' ");
 
                           if ($save) {
                             echo "<script>window.location='mapel.php';</script>";

@@ -60,6 +60,7 @@
                   <ul class="nav child_menu">
                     <li><a href="japel/japel.php">Data Jadwal Pelajaran</a></li>
                     <li><a href="nilai/nilai.php">Data Nilai</a></li>
+                    <li><a href="rapot/rapot.php">Data Rapot</a></li>
                   </ul>
                 </li>
                 <li><a><i class="fa fa-clone"></i>Laporan <span class="fa fa-chevron-down"></span></a>

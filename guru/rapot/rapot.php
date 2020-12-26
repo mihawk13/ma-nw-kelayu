@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-<?php include_once('../layouts/head.html') ?>
+  <?php include_once('../layouts/head.html') ?>
 </head>
 
 <body class="nav-md">
@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDN 6 Panjer</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -39,14 +39,13 @@
         <div class="">
           <div class="row">
             <div class="col-md-12 col-sm-12 ">
-              <a href="mapel-add.php" class="btn btn-primary" style="margin-bottom: 5px;"><i class="fa fa-plus"></i> Tambah Data</a>
               <div class="x_panel">
                 <div class="x_content">
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="card-box table-responsive">
                         <p class="text-muted font-13 m-b-30">
-                          <h2>DATA PELAJARAN</h2>
+                          <h2>DATA RAPORT SISWA</h2>
                           <hr>
                         </p>
 
@@ -54,26 +53,30 @@
                           <thead>
                             <tr>
                               <th>No</th>
-                              <th>Mata Pelajaran</th>
-                              <th>Muatan Lokal</th>
-                              <th>Aksi</th>
+                              <th>Kelas</th>
+                              <th>Nama Siswa</th>
+                              <th>JK</th>
+                              <th></th>
                             </tr>
                           </thead>
                           <tbody>
                             <?php
                             include "../../koneksi.php";
-                            $modal = mysqli_query($db, "SELECT * FROM tb_mapel");
-                            $no = 1;
-                            while ($r = mysqli_fetch_array($modal)) {
+                            $modal = mysqli_query($db, "SELECT * FROM tb_siswa a
+                            INNER JOIN tb_kelas b ON a.kelas=b.id_kelas
+                            WHERE b.wali_kelas = '$_SESSION[username]' AND b.thn_ajaran = '$_SESSION[tahunajaran]' ORDER BY a.nama_siswa ASC");
+                            $no=1;
+                            while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
                                 <td><?= $no++; ?></td>
-                                <td><?= $r['nama_mapel']; ?></td>
-                                <td><?= ($r['mulok']==0) ? 'Tidak' : 'Ya' ?></td>
+                                <td><?= $r['nama_kelas']; ?></td>
+                                <td><?= $r['nama_siswa']; ?></td>
+                                <td><?= $r['jk']; ?></td>
 
                                 <td align="center">
-                                  <a href="mapel-edit.php?id_mapel=<?php echo $r['id']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="mapel-delete.php?&id_mapel=<?php echo  $r['id']; ?>" class="fa fa-trash-o"></a>
+                                  <a href="set-rapot.php?nisn=<?= $r['nisn']; ?>" class="fa fa-book" ->Tentukan Raport</a>&nbsp;&nbsp;&nbsp;
+                                  <a target="_blank" href="get-rapot.php?nisn=<?= $r['nisn']; ?>" class="fa fa-eye" ->Lihat Raport</a>
                                 </td>
                               </tr> <?php } ?>
                           </tbody>
