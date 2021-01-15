@@ -70,14 +70,15 @@
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
-                                <td><?php echo  $r['nama_kelas']; ?></td>
-                                <td><?php echo  $r['nisn']; ?></td>
-                                <td><?php echo  $r['nama_siswa']; ?></td>
-                                <td><?php echo  $r['jk']; ?></td>
-                                <td><?php echo  $r['alamat']; ?></td>
+                                <td><?=  $r['nama_kelas']; ?></td>
+                                <td><?=  $r['nisn']; ?></td>
+                                <td><?=  $r['nama_siswa']; ?></td>
+                                <td><?=  $r['jk']; ?></td>
+                                <td><?=  $r['alamat']; ?></td>
                                 <td align="center">
-                                  <a href="siswa-edit.php?nisn=<?php echo $r['nisn']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="siswa-delete.php?&nisn=<?php echo  $r['nisn']; ?>" class="fa fa-trash-o"></a>
+                                  <a href="siswa-extra.php?nisn=<?= $r['nisn']; ?>" class="fa fa-book" ->Extra</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <a href="siswa-edit.php?nisn=<?= $r['nisn']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <a href="siswa-delete.php?&nisn=<?=  $r['nisn']; ?>" class="fa fa-trash-o"></a>
                                 </td>
                               </tr> <?php } ?>
                           </tbody>
@@ -205,6 +206,8 @@ if (isset($_POST['import'])) {
       mysqli_query($db, "DELETE FROM tb_siswa_excel WHERE nisn = ''");
       echo "<script>alert('Import data siswa berhasil!'); window.location='siswa.php';</script>";
     }
+  } else {
+    echo "<script>alert('Maaf type file yang anda masukkan tidak disupport!');window.location='siswa.php';</script>";
   }
 }
 ?>

@@ -67,15 +67,15 @@
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
-                                <td><?php echo  $r['nip']; ?></td>
-                                <td><?php echo  $r['nama']; ?></td>
-                                <td><?php echo  $r['jk']; ?></td>
-                                <td><?php echo  $r['status_kerja']; ?></td>
+                                <td><?=  $r['nip']; ?></td>
+                                <td><?=  $r['nama']; ?></td>
+                                <td><?=  $r['jk']; ?></td>
+                                <td><?=  $r['status_kerja']; ?></td>
 
                                 <td align="center">
-                                  <a href="guru-mapel.php?nip=<?php echo $r['nip']; ?>" class="fa fa-book" ->Mapel</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="guru-edit.php?nip=<?php echo $r['nip']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="guru-delete.php?&nip=<?php echo  $r['nip']; ?>" class="fa fa-trash-o"></a>
+                                  <a href="guru-mapel.php?nip=<?= $r['nip']; ?>" class="fa fa-book" ->Mapel</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <a href="guru-edit.php?nip=<?= $r['nip']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <a href="guru-delete.php?&nip=<?=  $r['nip']; ?>" class="fa fa-trash-o"></a>
                                 </td>
                               </tr> <?php } ?>
                           </tbody>

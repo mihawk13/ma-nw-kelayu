@@ -484,7 +484,8 @@ $pdf->SetXY($xPos + 55, $yPos);
 $pdf->Cell(128, 10, 'Keterangan', 1, 0, 'C', 1);
 
 $modal = mysqli_query($db, "SELECT * FROM tb_extra a
-LEFT JOIN (SELECT * FROM tb_raport_extra WHERE id_raport = '$id') b ON a.id = b.id_extra");
+INNER JOIN tb_extra_siswa c ON a.id=c.id_extra
+LEFT JOIN (SELECT * FROM tb_raport_extra WHERE id_raport = '$id') b ON a.id = b.id_extra WHERE c.nisn = '$nisn'");
 $no = 1;
 while ($ext = mysqli_fetch_array($modal)) {
     $pdf->SetFont('Arial', '', 10);

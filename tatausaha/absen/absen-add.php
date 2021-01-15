@@ -6,6 +6,8 @@ include "../../koneksi.php";
 
 <head>
   <?php include_once('../layouts/head.html') ?>
+<link href="../../assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+
 </head>
 
 <body class="nav-md">
@@ -75,7 +77,7 @@ include "../../koneksi.php";
                               </div>
                               <div class="form-group">
                                 <label for="nisn">Tanggal</label>
-                                <input type="date" id="tgl_absen" class="form-control" placeholder="tgl absen" name="tgl_absen" required oninvalid="this.setCustomValidity('tgl absen tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="datepicker" class="form-control" placeholder="Masukkan Tanggal Absen" name="tgl_absen" required oninvalid="this.setCustomValidity('tgl absen tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="nisn">Keterangan</label>
@@ -127,6 +129,7 @@ include "../../koneksi.php";
     </div>
   </div>
   <?php include_once('../layouts/scripts.html') ?>
+  <script src="../../assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
   <script>
     $('#kelas').change(function() {
@@ -140,6 +143,14 @@ include "../../koneksi.php";
         success: function(response) {
           $('#nama_siswa').html(response);
         }
+      });
+    });
+    $(document).ready(function () {
+      $('#datepicker').datepicker({
+          toggleActive: true,
+          endDate: new Date(),
+          todayBtn: 'linked',
+          format: 'yyyy-mm-d'
       });
     });
   </script>

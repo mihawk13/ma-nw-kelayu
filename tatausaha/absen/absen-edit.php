@@ -4,6 +4,7 @@
 
 <head>
 <?php include_once('../layouts/head.html') ?>
+<link href="../../assets/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -62,7 +63,7 @@
                                 <!-- FORM KIRI -->
                                 <div class="form-group">
                                   <label for="id_absen">ID Absen</label>
-                                  <input type="text" id="id_absen" placeholder="ID Absen" name="id_absen" class="form-control" value="<?php echo $r['id_absen']; ?>" required readonly>
+                                  <input type="text" id="id_absen" placeholder="ID Absen" name="id_absen" class="form-control" value="<?= $r['id_absen']; ?>" required readonly>
                                 </div>
                                 <div class="form-group">
                                   <label for="nisn">Siswa</label>
@@ -81,11 +82,11 @@
                                 </div>
                                 <div class="form-group">
                                   <label for="tgl_absen">Tgl Absen</label>
-                                  <input type="date" id="tgl_absen" placeholder="tgl_absen " name="tgl_absen" class="form-control" value="<?php echo $r['tgl_absen']; ?>" required oninvalid="this.setCustomValidity('tgl absen tidak boleh kosong')" oninput="setCustomValidity('')">
+                                  <input type="text" id="datepicker" name="tgl_absen" placeholder="Masukkan Tanggal Absen" class="form-control" value="<?= $r['tgl_absen']; ?>" required oninvalid="this.setCustomValidity('tgl absen tidak boleh kosong')" oninput="setCustomValidity('')">
                                 </div>
                                 <div class="form-group">
                                   <label for="ket_absen">Ket. Absen</label>
-                                  <input type="text" id="ket_absen" placeholder="tempat lahir " name="ket_absen" class="form-control" value="<?php echo $r['ket_absen']; ?>" required oninvalid="this.setCustomValidity('tempat lahir tidak boleh kosong')" oninput="setCustomValidity('')">
+                                  <input type="text" id="ket_absen" placeholder="tempat lahir " name="ket_absen" class="form-control" value="<?= $r['ket_absen']; ?>" required oninvalid="this.setCustomValidity('tempat lahir tidak boleh kosong')" oninput="setCustomValidity('')">
                                 </div>
                                 <div>
                                   <input type="submit" class="btn btn-success" value="SIMPAN" name="simpan">
@@ -133,6 +134,18 @@
     </div>
   </div>
   <?php include_once('../layouts/scripts.html') ?>
+  <script src="../../assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#datepicker').datepicker({
+          toggleActive: true,
+          endDate: new Date(),
+          todayBtn: 'linked',
+          format: 'yyyy-mm-d'
+      });
+    });
+  </script>
 
 </body>
 

@@ -108,7 +108,8 @@ include "../../helper.php";
                                 <tbody>
                                   <?php
                                   $modal = mysqli_query($db, "SELECT * FROM tb_extra a
-                                      LEFT JOIN (SELECT * FROM tb_raport_extra WHERE id_raport = '$rpt[id]') b ON a.id = b.id_extra");
+                                  INNER JOIN tb_extra_siswa c ON a.id=c.id_extra
+                                      LEFT JOIN (SELECT * FROM tb_raport_extra WHERE id_raport = '$rpt[id]') b ON a.id = b.id_extra WHERE c.nisn = '$_GET[nisn]'");
                                   while ($ext = mysqli_fetch_array($modal)) { ?>
                                     <input type="hidden" name="id_extra[]" value="<?= $ext['id'] ?>">
                                     <tr>
