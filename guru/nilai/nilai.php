@@ -41,14 +41,15 @@ include "../../koneksi.php"; ?>
           <div class="row">
             <div class="col-md-12 col-sm-12 ">
               <a href="nilai-add.php" class="btn btn-primary" style="margin-bottom: 5px;"><i class="fa fa-plus"></i> Tambah Data</a>
+              <button class="btn btn-success" style="margin-bottom: 5px;" data-toggle="modal" data-target="#modalImport"><i class="fa fa-file-excel-o"></i> Import Data</button>
               <div class="x_panel">
                 <div class="x_content">
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="card-box table-responsive">
                         <p class="text-muted font-13 m-b-30">
-                          <h2>DATA NILAI</h2>
-                          <hr>
+                        <h2>DATA NILAI</h2>
+                        <hr>
                         </p>
 
                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
@@ -102,6 +103,52 @@ include "../../koneksi.php"; ?>
       </div>
       <!-- /page content -->
 
+      <!-- Modal -->
+      <div class="modal fade" id="modalImport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Import Data Siswa</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="" method="post" enctype="multipart/form-data">
+              <div class="modal-body">
+                <div class="form-group">
+                  <select name="id_mapel" id="id_mapel" class="form-control" required>
+                    <option value="">-- Pilih Mapel --</option>
+                    <?php
+                    $query = mysqli_query($db, "SELECT a.id_kelas, a.id_mapel, b.nama_mapel,c.nama_kelas FROM tb_mapel_guru a
+                                  INNER JOIN tb_mapel b ON a.id_mapel=b.id
+                                  INNER JOIN tb_kelas c ON a.id_kelas=c.id_kelas
+                                  WHERE a.nip = '$_SESSION[username]' AND a.thn_ajaran = '$_SESSION[tahunajaran]'");
+                    while ($r = mysqli_fetch_array($query)) { ?>
+                      <option value="<?= $r['id_kelas'] . '-' . $r['id_mapel'] ?>"><?= $r['nama_kelas'] . ' | ' . $r['nama_mapel'] ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <select name="semester" class="form-control" required>
+                    <option value="">-- Pilih Semester --</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">Masukkan file excel</label>
+                  <input type="file" name="berkas_excel" class="form-control">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" name="import" class="btn btn-primary">Proses</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <!-- footer content -->
       <?php include_once('../layouts/footer.html') ?>
       <!-- /footer content -->
@@ -112,3 +159,65 @@ include "../../koneksi.php"; ?>
 </body>
 
 </html>
+
+<?php
+
+require '../../vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Reader\Csv;
+use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+
+if (isset($_POST['import'])) {
+  $file_mimes = array('application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+
+  if (isset($_FILES['berkas_excel']['name']) && in_array($_FILES['berkas_excel']['type'], $file_mimes)) {
+
+    $arr_file = explode('.', $_FILES['berkas_excel']['name']);
+    $extension = end($arr_file);
+
+    if ('csv' == $extension) {
+      $reader = new Csv();
+    } else {
+      $reader = new Xlsx();
+    }
+
+    $id_mapel   = $_POST['id_mapel'];
+    $semester   = $_POST['semester'];
+    $thn        = $_SESSION['tahunajaran'];
+
+
+
+    $idkls;
+    $idmpl;
+    if (strlen($id_mapel) == 3) {
+      $idkls = substr($id_mapel, 0, 1);
+      $idmpl = substr($id_mapel, 2);
+    } elseif (strlen($id_mapel) > 3) {
+      $idkls = substr($id_mapel, 0, 2);
+      $idmpl = substr($id_mapel, 3);
+    }
+
+    $spreadsheet = $reader->load($_FILES['berkas_excel']['tmp_name']);
+
+    $sheetData = $spreadsheet->getActiveSheet()->toArray();
+
+    $xDataKebawah = count($sheetData);
+    $xDataKekanan = 15;
+    // loop sebanyak 8x utk tiap nilai
+    for ($i = 3; $i <= $xDataKekanan; $i++) {
+
+      for ($j = 4; $j < $xDataKebawah; $j++) {
+        if (isset($sheetData['2'][$i]) && isset($sheetData[$j][$i])) {
+          $nisn       = $sheetData[$j]['1'];
+          $jns_nilai  = $sheetData['2'][$i];
+          $nilai      = $sheetData[$j][$i];
+          mysqli_query($db, "INSERT INTO tb_nilai (id_kelas,id_mapel,nisn,jns_nilai,nilai,thn_ajaran,semester) VALUES ('$idkls', '$idmpl','$nisn','$jns_nilai','$nilai','$thn','$semester')") or die($db->error);
+          echo "<script>alert('Import nilai siswa berhasil!');window.location='nilai.php';</script>";
+        }
+      }
+    }
+  } else {
+    echo "<script>alert('Maaf type file yang anda masukkan tidak disupport!');window.location='nilai.php';</script>";
+  }
+}
+?>
