@@ -42,6 +42,7 @@ include "../../koneksi.php"; ?>
             <div class="col-md-12 col-sm-12 ">
               <a href="nilai-add.php" class="btn btn-primary" style="margin-bottom: 5px;"><i class="fa fa-plus"></i> Tambah Data</a>
               <button class="btn btn-success" style="margin-bottom: 5px;" data-toggle="modal" data-target="#modalImport"><i class="fa fa-file-excel-o"></i> Import Data</button>
+              <button class="btn btn-warning" style="margin-bottom: 5px;" data-toggle="modal" data-target="#modalExport"><i class="fa fa-file-excel-o"></i> Buat format Nilai</button>
               <div class="x_panel">
                 <div class="x_content">
                   <div class="row">
@@ -103,7 +104,7 @@ include "../../koneksi.php"; ?>
       </div>
       <!-- /page content -->
 
-      <!-- Modal -->
+      <!-- Modal Import -->
       <div class="modal fade" id="modalImport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
@@ -149,6 +150,38 @@ include "../../koneksi.php"; ?>
         </div>
       </div>
 
+      <!-- Modal Export -->
+      <div class="modal fade" id="modalExport" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Buat Format Nilai Siswa</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form action="" method="post" enctype="multipart/form-data">
+              <div class="modal-body">
+                <div class="form-group">
+                  <select name="kelas" id="kelas" class="form-control" required>
+                    <option value="">-- Pilih Kelas --</option>
+                    <?php
+                    $query = mysqli_query($db, "SELECT * FROM tb_kelas WHERE thn_ajaran = '$_SESSION[tahunajaran]'");
+                    while ($r = mysqli_fetch_array($query)) { ?>
+                      <option value="<?= $r['id_kelas'] ?>"><?= $r['nama_kelas'] ?></option>
+                    <?php } ?>
+                  </select>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="submit" name="export" class="btn btn-primary">Proses</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
       <!-- footer content -->
       <?php include_once('../layouts/footer.html') ?>
       <!-- /footer content -->
@@ -166,6 +199,7 @@ require '../../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Reader\Csv;
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx as Writer;
 
 if (isset($_POST['import'])) {
   $file_mimes = array('application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
@@ -184,8 +218,6 @@ if (isset($_POST['import'])) {
     $id_mapel   = $_POST['id_mapel'];
     $semester   = $_POST['semester'];
     $thn        = $_SESSION['tahunajaran'];
-
-
 
     $idkls;
     $idmpl;
@@ -219,5 +251,34 @@ if (isset($_POST['import'])) {
   } else {
     echo "<script>alert('Maaf type file yang anda masukkan tidak disupport!');window.location='nilai.php';</script>";
   }
+}
+
+if (isset($_POST['export'])) {
+
+  $reader = new Xlsx();
+  $spreadsheet = $reader->load('../../src/template_nilai.xlsx');
+  $sheet = $spreadsheet->getActiveSheet();
+
+  $query = mysqli_query($db, "SELECT * FROM tb_siswa WHERE kelas = '$_POST[kelas]'");
+  $row = 5;
+  $no = 1;
+  while ($r = mysqli_fetch_array($query)) {
+
+    $sheet->setCellValue('A' . $row, $no++);
+    $sheet->setCellValue('B' . $row, $r['nisn']);
+    $sheet->setCellValue('C' . $row, $r['nama_siswa']);
+    $row += 1;
+  }
+
+  $query = mysqli_query($db, "SELECT * FROM tb_kelas WHERE id_kelas = '$_POST[kelas]'");
+  $kls = mysqli_fetch_assoc($query);
+  $sheet->setCellValue('D1', 'Kelas ' . $kls['nama_kelas']);
+
+  $writer = new Writer($spreadsheet);
+  // $writer->save("php://output");
+  $file = 'Nilai_Kelas_' . $_POST['kelas'] . '.xlsx';
+  $writer->save($file);
+
+  echo "<script>window.location='download.php?file=" . $file . "';</script>";
 }
 ?>
