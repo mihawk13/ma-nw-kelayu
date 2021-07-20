@@ -35,13 +35,13 @@ DROP TABLE IF EXISTS `tb_japel`;
 
 CREATE TABLE `tb_japel` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `id_kelas` int(10) NOT NULL,
-  `id_mapel` int(10) NOT NULL,
+  `kelas_id` int(10) NOT NULL,
+  `mapel_id` int(10) NOT NULL,
   `hari` varchar(10) NOT NULL,
   `jam` varchar(20) NOT NULL,
   `tahun_ajaran` varchar(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `tb_kelas` */
 
@@ -51,9 +51,9 @@ CREATE TABLE `tb_kelas` (
   `id_kelas` int(11) NOT NULL AUTO_INCREMENT,
   `nama_kelas` varchar(10) NOT NULL,
   `thn_ajaran` varchar(9) NOT NULL,
-  `wali_kelas` varchar(20) NOT NULL,
+  `nip_wali` varchar(20) NOT NULL,
   PRIMARY KEY (`id_kelas`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `tb_mapel` */
 
@@ -63,7 +63,7 @@ CREATE TABLE `tb_mapel` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `nama_mapel` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `tb_mapel_guru` */
 
@@ -71,8 +71,8 @@ DROP TABLE IF EXISTS `tb_mapel_guru`;
 
 CREATE TABLE `tb_mapel_guru` (
   `nip` varchar(20) NOT NULL,
-  `id_mapel` int(10) NOT NULL,
-  `id_kelas` int(10) NOT NULL,
+  `mapel_id` int(10) NOT NULL,
+  `kelas_id` int(10) NOT NULL,
   `thn_ajaran` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -82,15 +82,15 @@ DROP TABLE IF EXISTS `tb_nilai`;
 
 CREATE TABLE `tb_nilai` (
   `id_nilai` int(10) NOT NULL AUTO_INCREMENT,
-  `id_kelas` int(10) NOT NULL,
-  `id_mapel` int(10) NOT NULL,
+  `kelas_id` int(10) NOT NULL,
+  `mapel_id` int(10) NOT NULL,
   `nisn` int(20) NOT NULL,
   `jns_nilai` text NOT NULL,
   `nilai` varchar(10) NOT NULL,
   `thn_ajaran` varchar(10) NOT NULL,
   `semester` int(1) NOT NULL,
   PRIMARY KEY (`id_nilai`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 /*Table structure for table `tb_pegawai` */
 
@@ -124,7 +124,7 @@ CREATE TABLE `tb_raport` (
   `d_saran_saran` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIK` (`thn_ajaran`,`semester`,`nisn`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `tb_raport_detail` */
 
@@ -179,7 +179,7 @@ CREATE TABLE `tb_tahun_ajaran` (
   `tahun` varchar(10) NOT NULL,
   `status` enum('Aktif','Tidak Aktif') NOT NULL DEFAULT 'Tidak Aktif',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

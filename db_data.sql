@@ -19,7 +19,7 @@ USE `ma-nw-kelayu`;
 /*Data for the table `tb_data_sekolah` */
 
 insert  into `tb_data_sekolah`(`id`,`alamat`,`nama_sekolah`,`nama_kepsek`,`nip_kepsek`) values 
-(1,'Jl. TGH Zainuddin Abdul Madjid','Madrasah Aliyah NW Kelayu','Arsan Rusydani','1563 1402 2078101125');
+(1,'Jl. TGH Zainuddin Abdul Madjid','MA Mu\'alimin / Mu\'alimat NW Kelayu','Arsan Rusydani','1563 1402 2078101125');
 
 /*Data for the table `tb_japel` */
 
@@ -34,29 +34,7 @@ insert  into `tb_japel`(`id`,`kelas_id`,`mapel_id`,`hari`,`jam`,`tahun_ajaran`) 
 (8,1,1,'Kamis','09:00 - 10:30','2019/2020'),
 (9,1,1,'Jumat','07:30 - 09:00','2019/2020'),
 (10,1,2,'Jumat','09:00 - 10:30','2019/2020'),
-(11,1,5,'Sabtu','07:30 - 09:00','2019/2020'),
-(12,2,1,'Senin','07:30 - 09:00','2019/2020'),
-(13,2,2,'Senin','09:00 - 10:30','2019/2020'),
-(14,2,1,'Selasa','07:30 - 09:00','2019/2020'),
-(15,2,2,'Selasa','09:00 - 10:30','2019/2020'),
-(16,2,4,'Rabu','07:30 - 09:00','2019/2020'),
-(17,2,6,'Rabu','09:00 - 10:30','2019/2020'),
-(18,2,7,'Kamis','07:30 - 09:00','2019/2020'),
-(19,2,1,'Kamis','09:00 - 10:30','2019/2020'),
-(20,2,1,'Jumat','07:30 - 09:00','2019/2020'),
-(21,2,2,'Jumat','09:00 - 10:30','2019/2020'),
-(22,2,5,'Sabtu','07:30 - 09:00','2019/2020'),
-(23,3,1,'Senin','07:30 - 09:00','2019/2020'),
-(24,3,2,'Senin','09:00 - 10:30','2019/2020'),
-(25,3,1,'Selasa','07:30 - 09:00','2019/2020'),
-(26,3,2,'Selasa','09:00 - 10:30','2019/2020'),
-(27,3,4,'Rabu','07:30 - 09:00','2019/2020'),
-(28,3,6,'Rabu','09:00 - 10:30','2019/2020'),
-(29,3,7,'Kamis','07:30 - 09:00','2019/2020'),
-(30,3,1,'Kamis','09:00 - 10:30','2019/2020'),
-(31,3,1,'Jumat','07:30 - 09:00','2019/2020'),
-(32,3,2,'Jumat','09:00 - 10:30','2019/2020'),
-(33,3,5,'Sabtu','07:30 - 09:00','2019/2020');
+(11,1,5,'Sabtu','07:30 - 09:00','2019/2020');
 
 /*Data for the table `tb_kelas` */
 
@@ -87,10 +65,17 @@ insert  into `tb_mapel_guru`(`nip`,`mapel_id`,`kelas_id`,`thn_ajaran`) values
 ('16821660',2,3,'2019/2020'),
 ('16821660',7,3,'2019/2020'),
 ('89785635528',4,1,'2019/2020'),
-('89785635528',8,2,'2019/2020'),
-('89785635528',7,3,'2019/2020');
+('89785635528',8,1,'2019/2020'),
+('89785635528',7,1,'2019/2020');
 
 /*Data for the table `tb_nilai` */
+
+insert  into `tb_nilai`(`id_nilai`,`kelas_id`,`mapel_id`,`nisn`,`jns_nilai`,`nilai`,`thn_ajaran`,`semester`) values 
+(2,1,4,916902423,'UH 1','90','2019/2020',1),
+(3,1,4,916902423,'UH 2','75','2019/2020',1),
+(4,1,4,916902423,'UH 3','80','2019/2020',1),
+(5,1,4,916902423,'UTS','85','2019/2020',1),
+(6,1,4,916902423,'UAS','80','2019/2020',1);
 
 /*Data for the table `tb_pegawai` */
 
@@ -116,7 +101,20 @@ insert  into `tb_pegawai`(`nip`,`nama`,`jk`,`tempat_lahir`,`tgl_lahir`,`alamat`,
 
 /*Data for the table `tb_raport` */
 
+insert  into `tb_raport`(`id`,`thn_ajaran`,`semester`,`nisn`,`a_sikap_spiritual`,`a_sikap_sosial`,`d_saran_saran`) values 
+(1,'2019/2020',1,'916902423','Memiliki sikap spiritual baik','Memiliki sikap sosial baik','Belajar lebih giat lagi');
+
 /*Data for the table `tb_raport_detail` */
+
+insert  into `tb_raport_detail`(`id_raport`,`id_mapel`,`pengetahuan`,`keterampilan`) values 
+(1,1,'Memiliki penguasaan pengetahuan yang sangat baik','Memiliki penguasaan pengetahuan yang sangat baik'),
+(1,2,'Memiliki penguasaan pengetahuan yang sangat baik','Memiliki penguasaan pengetahuan yang sangat baik'),
+(1,3,'Memiliki penguasaan pengetahuan yang sangat baik','Memiliki penguasaan pengetahuan yang sangat baik'),
+(1,4,'Memiliki penguasaan pengetahuan yang sangat baik','Memiliki penguasaan pengetahuan yang sangat baik'),
+(1,5,'Memiliki penguasaan pengetahuan yang sangat baik','Memiliki penguasaan pengetahuan yang sangat baik'),
+(1,6,'Memiliki penguasaan pengetahuan yang sangat baik','Memiliki penguasaan pengetahuan yang sangat baik'),
+(1,7,'Memiliki penguasaan pengetahuan yang sangat baik','Memiliki penguasaan pengetahuan yang sangat baik'),
+(1,8,'Memiliki penguasaan pengetahuan yang sangat baik','Memiliki penguasaan pengetahuan yang sangat baik');
 
 /*Data for the table `tb_siswa` */
 
