@@ -55,10 +55,10 @@
                             <div class="col-md-4">
                               <!-- FORM KIRI -->
                               <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Masukkan NIP" name="nip" required oninvalid="this.setCustomValidity('nip tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" class="form-control" placeholder="Masukkan NIP" id="nip" name="nip" required oninvalid="this.setCustomValidity('nip tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
-                                <input type="text" id="nama" class="form-control" placeholder="Masukkan Nama" name="nama" required oninvalid="this.setCustomValidity('nama tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="nama" class="form-control" placeholder="Masukkan Nama" id="name" name="nama" required oninvalid="this.setCustomValidity('nama tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <select name="jk" id="jk" class="form-control" required oninvalid="this.setCustomValidity('Pilih Jenis Kelamin Pegawai!')" oninput="setCustomValidity('')">
@@ -87,12 +87,6 @@
                                   <option value="Tata Usaha">Tata Usaha</option>
                                 </select>
                               </div>
-                              <div class="form-group">
-                                <input type="text" placeholder="Masukkan Username " name="username" class="form-control" required oninvalid="this.setCustomValidity('Username tidak boleh kosong')" oninput="setCustomValidity('')">
-                              </div>
-                              <div class="form-group">
-                                <input type="password" placeholder="Masukkan Password " name="password" class="form-control" required oninvalid="this.setCustomValidity('Username tidak boleh kosong')" oninput="setCustomValidity('')">
-                              </div>
 
                               <div>
                                 <input type="submit" class="btn btn-success" value="SIMPAN" name="simpan">
@@ -103,17 +97,17 @@
                           <?php
                           include "../../koneksi.php";
                           if (isset($_POST['simpan'])) {
-                            $nip = $_POST['nip'];
-                            $nama = $_POST['nama'];
-                            $jk         = $_POST['jk'];
-                            $tempat_lahir   = $_POST['tempat_lahir'];
-                            $tgl_lahir      = $_POST['tgl_lahir'];
-                            $agama      = $_POST['agama'];
-                            $telp      = $_POST['telp'];
-                            $level   = $_POST['level'];
-                            $username      = $_POST['username'];
-                            $password   = $_POST['password'];
-                            $alamat   = $_POST['alamat'];
+                            $nip          = $_POST['nip'];
+                            $nama         = $_POST['nama'];
+                            $jk           = $_POST['jk'];
+                            $tempat_lahir = $_POST['tempat_lahir'];
+                            $tgl_lahir    = $_POST['tgl_lahir'];
+                            $agama        = $_POST['agama'];
+                            $telp         = $_POST['telp'];
+                            $level        = $_POST['level'];
+                            $username     = $nip;
+                            $password     = $nip;
+                            $alamat       = $_POST['alamat'];
 
 
                             $query = mysqli_query($db, "SELECT * FROM tb_pegawai WHERE nip = '$nip' ");

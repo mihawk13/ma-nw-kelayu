@@ -62,7 +62,7 @@ include "../../koneksi.php";
                               <select name="nip" id="" class="form-control select2">
                                 <option value="">-- Pilih Wali Kelas --</option>
                                 <?php
-                                $query = mysqli_query($db, "SELECT * FROM tb_pegawai WHERE LEVEL = 'Guru' AND nip NOT IN(SELECT wali_kelas FROM tb_kelas WHERE thn_ajaran ='$_SESSION[tahunajaran]')");
+                                $query = mysqli_query($db, "SELECT * FROM tb_pegawai WHERE LEVEL = 'Guru' AND nip NOT IN(SELECT nip_wali FROM tb_kelas WHERE thn_ajaran ='$_SESSION[tahunajaran]') ORDER BY nama");
                                 while ($r = mysqli_fetch_array($query)) { ?>
                                   <option value="<?= $r['nip'] ?>"><?= $r['nama'] ?></option>
                                 <?php } ?>

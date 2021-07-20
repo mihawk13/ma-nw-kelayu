@@ -90,7 +90,7 @@ if (@$_SESSION['level'] == 'Tata Usaha') {
                 if ($level == 'Tata Usaha') {
                   echo "<script> window.location = 'tatausaha'; </script>";
                 } elseif ($level == 'Guru') {
-                  $sql = mysqli_query($db, "SELECT * FROM tb_kelas WHERE wali_kelas = '$user' AND thn_ajaran = '$r[tahun]'");
+                  $sql = mysqli_query($db, "SELECT * FROM tb_kelas WHERE nip_wali = '$user' AND thn_ajaran = '$r[tahun]'");
                   $kls = mysqli_fetch_assoc($sql);
                   if (mysqli_num_rows($sql) > 0) {
                     $_SESSION['walikelas'] = $kls['id_kelas'];

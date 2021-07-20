@@ -125,8 +125,8 @@ include "../../helper.php";
                                 LEFT JOIN (SELECT * FROM tb_raport_detail WHERE id_raport = '$rpt[id]') b ON a.id = b.id_mapel
                                 LEFT JOIN (SELECT c.id 'id_mapel',a.nisn,a.thn_ajaran, (SUM(a.nilai) / COUNT(a.nisn)) rata FROM tb_nilai a
                                                             INNER JOIN tb_siswa b ON a.nisn=b.nisn
-                                                            INNER JOIN tb_mapel c ON a.id_mapel=c.id
-                                                            INNER JOIN tb_kelas d ON a.id_kelas=d.id_kelas
+                                                            INNER JOIN tb_mapel c ON a.mapel_id=c.id
+                                                            INNER JOIN tb_kelas d ON a.kelas_id=d.id_kelas
                                                             WHERE a.nisn = '$_GET[nisn]' AND a.thn_ajaran = '$_SESSION[tahunajaran]' AND a.semester = '$_POST[semester]'
                                                             GROUP BY nisn, id_mapel, thn_ajaran, semester) c ON a.id = c.id_mapel");
                                 $no = 1;

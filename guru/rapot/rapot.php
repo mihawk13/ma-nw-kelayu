@@ -45,8 +45,8 @@
                     <div class="col-sm-12">
                       <div class="card-box table-responsive">
                         <p class="text-muted font-13 m-b-30">
-                          <h2>DATA RAPORT SISWA</h2>
-                          <hr>
+                        <h2>DATA RAPORT SISWA</h2>
+                        <hr>
                         </p>
 
                         <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
@@ -64,8 +64,8 @@
                             include "../../koneksi.php";
                             $modal = mysqli_query($db, "SELECT * FROM tb_siswa a
                             INNER JOIN tb_kelas b ON a.kelas=b.id_kelas
-                            WHERE b.wali_kelas = '$_SESSION[username]' AND b.thn_ajaran = '$_SESSION[tahunajaran]' ORDER BY a.nama_siswa ASC");
-                            $no=1;
+                            WHERE b.nip_wali = '$_SESSION[username]' AND b.thn_ajaran = '$_SESSION[tahunajaran]' ORDER BY a.nama_siswa ASC");
+                            $no = 1;
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>

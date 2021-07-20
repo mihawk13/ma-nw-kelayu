@@ -66,13 +66,13 @@ include "../../koneksi.php"; ?>
                                   <select name="id_mapel" id="id_mapel" class="form-control">
                                     <option value="">-- Pilih Mapel --</option>
                                     <?php
-                                    $query = mysqli_query($db, "SELECT a.id_kelas, a.id_mapel, b.nama_mapel,c.nama_kelas FROM tb_mapel_guru a
-                                    INNER JOIN tb_mapel b ON a.id_mapel=b.id
-                                    INNER JOIN tb_kelas c ON a.id_kelas=c.id_kelas
+                                    $query = mysqli_query($db, "SELECT a.kelas_id, a.mapel_id, b.nama_mapel,c.nama_kelas FROM tb_mapel_guru a
+                                    INNER JOIN tb_mapel b ON a.mapel_id=b.id
+                                    INNER JOIN tb_kelas c ON a.kelas_id=c.id_kelas
                                     WHERE a.nip = '$_SESSION[username]' AND a.thn_ajaran = '$_SESSION[tahunajaran]'");
                                     while ($mpl = mysqli_fetch_array($query)) {
-                                      $idmapel = $mpl['id_kelas'] . '-' . $mpl['id_mapel'];
-                                      $edmapel = $r['id_kelas'] . '-' . $r['id_mapel'];
+                                      $idmapel = $mpl['kelas_id'] . '-' . $mpl['mapel_id'];
+                                      $edmapel = $r['kelas_id'] . '-' . $r['mapel_id'];
                                     ?>
                                       <option <?= ($idmapel == $edmapel) ? 'selected' : '' ?> value="<?= $idmapel ?>"><?= $mpl['nama_kelas'] . ' | ' . $mpl['nama_mapel'] ?></option>
                                     <?php } ?>
@@ -83,7 +83,7 @@ include "../../koneksi.php"; ?>
                                   <select name="nisn" id="siswa" class="form-control select2">
                                     <option value="">-- Pilih Siswa --</option>
                                     <?php
-                                    $query = mysqli_query($db, "SELECT * FROM tb_siswa WHERE kelas = '$r[id_kelas]' ORDER BY nama_siswa ASC");
+                                    $query = mysqli_query($db, "SELECT * FROM tb_siswa WHERE kelas = '$r[kelas_id]' ORDER BY nama_siswa ASC");
                                     while ($ed = mysqli_fetch_array($query)) {
                                       if ($r['nisn'] == $ed['nisn']) { ?>
                                         <option selected value="<?= $ed['nisn'] ?>"><?= $ed['nama_siswa'] ?></option>

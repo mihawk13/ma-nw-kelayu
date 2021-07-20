@@ -65,8 +65,8 @@
                             <?php
                             include "../../koneksi.php";
                             $modal = mysqli_query($db, "SELECT a.id 'id_japel',a.*,b.*,c.* FROM tb_japel a
-                            INNER JOIN tb_mapel b ON a.id_mapel=b.id
-                            INNER JOIN tb_kelas c ON a.id_kelas=c.id_kelas WHERE a.tahun_ajaran = '$_SESSION[tahunajaran]'");
+                            INNER JOIN tb_mapel b ON a.mapel_id=b.id
+                            INNER JOIN tb_kelas c ON a.kelas_id=c.id_kelas WHERE a.tahun_ajaran = '$_SESSION[tahunajaran]'");
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
@@ -77,7 +77,7 @@
 
                                 <td align="center">
                                   <a href="japel-edit.php?id_japel=<?= $r['id_japel']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="japel-delete.php?&id_japel=<?=  $r['id_japel']; ?>" class="fa fa-trash-o"></a>
+                                  <!-- <a href="japel-delete.php?&id_japel=<?=  $r['id_japel']; ?>" class="fa fa-trash-o"></a> -->
                                 </td>
                               </tr> <?php } ?>
                           </tbody>

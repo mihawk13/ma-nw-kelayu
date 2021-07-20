@@ -71,9 +71,9 @@
                                   <label for="nip">Nama Wali Kelas <?=$r['wali_kelas']?></label>
                                   <select name="nip" class="form-control">
                                     <?php
-                                    $query = mysqli_query($db, "SELECT * FROM tb_pegawai WHERE LEVEL = 'Guru' AND nip NOT IN(SELECT wali_kelas FROM tb_kelas WHERE thn_ajaran ='$_SESSION[tahunajaran]')");
+                                    $query = mysqli_query($db, "SELECT * FROM tb_pegawai WHERE LEVEL = 'Guru' ORDER BY nama");
                                     while ($ed = mysqli_fetch_array($query)) { ?>
-                                     <option <?= $ed['nip'] == $r['wali_kelas'] ? 'selected' : '' ?> value="<?= $ed['nip'] ?>"><?= $ed['nama'] ?></option>
+                                     <option <?= $ed['nip'] == $r['nip_wali'] ? 'selected' : '' ?> value="<?= $ed['nip'] ?>"><?= $ed['nama'] ?></option>
                                     <?php } ?>
                                   </select>
                                 </div>

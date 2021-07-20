@@ -63,7 +63,7 @@
                             <?php
                             include "../../koneksi.php";
                             $modal = mysqli_query($db, "SELECT * FROM tb_kelas a
-                            INNER JOIN tb_pegawai b ON a.wali_kelas=b.nip WHERE a.thn_ajaran = '$_SESSION[tahunajaran]' ");
+                            INNER JOIN tb_pegawai b ON a.nip_wali=b.nip WHERE a.thn_ajaran = '$_SESSION[tahunajaran]' ");
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
@@ -73,7 +73,7 @@
 
                                 <td align="center">
                                   <a href="kelas-edit.php?id_kelas=<?= $r['id_kelas']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="kelas-delete.php?&id_kelas=<?=  $r['id_kelas']; ?>" class="fa fa-trash-o"></a>
+                                  <!-- <a href="kelas-delete.php?&id_kelas=<?=  $r['id_kelas']; ?>" class="fa fa-trash-o"></a> -->
                                 </td>
                               </tr> <?php } ?>
                           </tbody>

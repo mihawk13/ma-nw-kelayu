@@ -66,15 +66,15 @@ include_once("../../koneksi.php");
                                 $modal = mysqli_query($db, "SELECT * FROM tb_kelas");
                                 while ($r = mysqli_fetch_assoc($modal)) {
                                 ?>
-                                  <option value="<?= $r['id_kelas'] ?>">Kelas <?= $r['nama_kelas'] ?></option>
+                                  <option value="<?= $r['id_kelas'] ?>"><?= $r['nama_kelas'] ?></option>
                                 <?php } ?>
                               </select>
                             </div>
                             <div class="form-group">
-                              <input type="text" placeholder="nisn" name="nisn" class="form-control" required>
+                              <input type="text" placeholder="nisn" id="nisn" name="nisn" class="form-control" required>
                             </div>
                             <div class="form-group">
-                              <input type="text" class="form-control" placeholder="nama siswa" name="nama_siswa" required oninvalid="this.setCustomValidity('nama siswa tidak boleh kosong')" oninput="setCustomValidity('')">
+                              <input type="text" class="form-control" placeholder="nama siswa" id="name" name="nama_siswa" required oninvalid="this.setCustomValidity('nama siswa tidak boleh kosong')" oninput="setCustomValidity('')">
                             </div>
                             <div class="form-group">
                               <select name="jk" class="form-control" required oninvalid="this.setCustomValidity('Pilih Jenis Kelamin Siswa!')" oninput="setCustomValidity('')">
@@ -194,7 +194,7 @@ include_once("../../koneksi.php");
                           $query = mysqli_query($db, "SELECT * FROM tb_siswa WHERE nisn = '$nisn' ");
                           $cek = mysqli_num_rows($query);
                           if ($cek >= 1) {
-                            echo "<script> alert('NISN sudah pernah diinput, Masukkan NISN lain!');window.location='siswa.php';</script>";
+                            echo "<script> alert('NISN sudah pernah diinput, Masukkan NISN lain!');</script>";
                           } else {
                             mysqli_query($db, "INSERT INTO tb_siswa (nisn,nama_siswa,jk,tempat_lahir,tgl_lahir,agama,alamat,telp_siswa,status_siswa,nama_ayah,thn_lahir_ayah,pendidikan_ayah,pekerjaan_ayah,penghasilan_ayah,telp_ayah,nama_ibu,thn_lahir_ibu,pendidikan_ibu,pekerjaan_ibu,penghasilan_ibu,telp_ibu,kelas,username,password) 
                               VALUES ('$nisn','$nama_siswa','$jk','$tempat_lahir','$tgl_lahir','$agama','$alamat','$telp_siswa','$status_siswa','$nama_ayah','$thn_lahir_ayah','$pendidikan_ayah','$pekerjaan_ayah','$penghasilan_ayah','$telp_ayah','$nama_ibu','$thn_lahir_ibu','$pendidikan_ibu','$pekerjaan_ibu','$penghasilan_ibu','$telp_ibu','$kelas','$nisn','$nisn')") or die($db->error);

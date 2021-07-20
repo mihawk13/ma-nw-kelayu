@@ -57,7 +57,7 @@
                                 $klsid = isset($_POST['kelas']) ? $_POST['kelas'] : '';
                                 $modal = mysqli_query($db, "SELECT * FROM tb_kelas WHERE thn_ajaran = '$_SESSION[tahunajaran]'");
                                 while ($r = mysqli_fetch_assoc($modal)) { ?>
-                                <option <?= ($klsid == $r['id_kelas']) ? 'selected' : '' ?> value="<?=$r['id_kelas']?>">Kelas <?=$r['nama_kelas']?></option>
+                                <option <?= ($klsid == $r['id_kelas']) ? 'selected' : '' ?> value="<?=$r['id_kelas']?>"><?=$r['nama_kelas']?></option>
                                 <?php } ?>
                               </select>
                             </div>

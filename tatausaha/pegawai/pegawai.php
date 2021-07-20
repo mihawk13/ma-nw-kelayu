@@ -69,14 +69,17 @@
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
-                                <td><?=  $r['nip']; ?></td>
-                                <td><?=  $r['nama']; ?></td>
-                                <td><?=  $r['jk']; ?></td>
-                                <td><?=  $r['telp']; ?></td>
-                                <td><?=  $r['level']; ?></td>
+                                <td><?= $r['nip']; ?></td>
+                                <td><?= $r['nama']; ?></td>
+                                <td><?= $r['jk']; ?></td>
+                                <td><?= $r['telp']; ?></td>
+                                <td><?= $r['level']; ?></td>
                                 <td align="center">
+                                  <?php if ($r['level'] == 'Guru') { ?>
+                                    <a href="guru-mapel.php?nip=<?= $r['nip']; ?>" class="fa fa-book" ->Mapel</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <?php } ?>
                                   <a href="pegawai-edit.php?nip=<?= $r['nip']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="pegawai-delete.php?&nip=<?=  $r['nip']; ?>" class="fa fa-trash-o"></a>
+                                  <a href="pegawai-delete.php?&nip=<?= $r['nip']; ?>" class="fa fa-trash-o"></a>
                                 </td>
                               </tr> <?php } ?>
                           </tbody>

@@ -103,7 +103,7 @@ include "../../helper.php"; ?>
                           $jam      = $_POST['jam'];
                           $thn      = $_SESSION['tahunajaran'];
 
-                          mysqli_query($db, "INSERT INTO tb_japel (id_kelas,id_mapel,hari,jam,tahun_ajaran) VALUES ('$id_kelas','$id_mapel','$hari','$jam','$thn')") or die($db->error);
+                          mysqli_query($db, "INSERT INTO tb_japel (kelas_id,mapel_id,hari,jam,tahun_ajaran) VALUES ('$id_kelas','$id_mapel','$hari','$jam','$thn')") or die($db->error);
                           echo "<script>alert('Data berhasil disimpan!');window.location='japel.php';</script>";
                         }
                         ?>

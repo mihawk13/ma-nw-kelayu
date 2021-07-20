@@ -58,12 +58,12 @@ include "../../koneksi.php"; ?>
                               <select name="id_mapel" id="id_mapel" class="form-control" required>
                                 <option value="">-- Pilih Mapel --</option>
                                 <?php
-                                $query = mysqli_query($db, "SELECT a.id_kelas, a.id_mapel, b.nama_mapel,c.nama_kelas FROM tb_mapel_guru a
-                                  INNER JOIN tb_mapel b ON a.id_mapel=b.id
-                                  INNER JOIN tb_kelas c ON a.id_kelas=c.id_kelas
+                                $query = mysqli_query($db, "SELECT a.kelas_id, a.mapel_id, b.nama_mapel,c.nama_kelas FROM tb_mapel_guru a
+                                  INNER JOIN tb_mapel b ON a.mapel_id=b.id
+                                  INNER JOIN tb_kelas c ON a.kelas_id=c.id_kelas
                                   WHERE a.nip = '$_SESSION[username]' AND a.thn_ajaran = '$_SESSION[tahunajaran]'");
                                 while ($r = mysqli_fetch_array($query)) { ?>
-                                  <option value="<?= $r['id_kelas'] . '-' . $r['id_mapel'] ?>"><?= $r['nama_kelas'] . ' | ' . $r['nama_mapel'] ?></option>
+                                  <option value="<?= $r['kelas_id'] . '-' . $r['mapel_id'] ?>"><?= $r['nama_kelas'] . ' | ' . $r['nama_mapel'] ?></option>
                                 <?php } ?>
                               </select>
                             </div>
@@ -112,7 +112,7 @@ include "../../koneksi.php"; ?>
                             $idmpl = substr($id_mapel, 3);
                           }
 
-                          mysqli_query($db, "INSERT INTO tb_nilai (id_kelas,id_mapel,nisn,jns_nilai,nilai,thn_ajaran,semester) VALUES ('$idkls', '$idmpl','$nisn','$jns_nilai','$nilai','$thn','$semester')") or die($db->error);
+                          mysqli_query($db, "INSERT INTO tb_nilai (kelas_id,mapel_id,nisn,jns_nilai,nilai,thn_ajaran,semester) VALUES ('$idkls', '$idmpl','$nisn','$jns_nilai','$nilai','$thn','$semester')") or die($db->error);
                           echo "<script>alert('Data berhasil disimpan!');window.location='nilai.php';</script>";
                         }
                         ?>

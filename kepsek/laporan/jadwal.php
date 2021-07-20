@@ -57,7 +57,7 @@
                                 $klsid = isset($_POST['kelas']) ? $_POST['kelas'] : '';
                                 $modal = mysqli_query($db, "SELECT * FROM tb_kelas WHERE thn_ajaran = '$_SESSION[tahunajaran]'");
                                 while ($r = mysqli_fetch_assoc($modal)) { ?>
-                                <option <?= ($klsid == $r['id_kelas']) ? 'selected' : '' ?> value="<?=$r['id_kelas']?>">Kelas <?=$r['nama_kelas']?></option>
+                                <option <?= ($klsid == $r['id_kelas']) ? 'selected' : '' ?> value="<?=$r['id_kelas']?>"><?=$r['nama_kelas']?></option>
                                 <?php } ?>
                               </select>
                             </div>
@@ -85,10 +85,10 @@
                           <tbody>
                             <?php
                             $modal = mysqli_query($db, "SELECT a.hari,a.jam, e.nama,c.nama_kelas, b.nama_mapel FROM tb_japel a
-                            INNER JOIN tb_mapel b ON a.id_mapel=b.id
-                            INNER JOIN tb_kelas c ON a.id_kelas=c.id_kelas
-                            INNER JOIN tb_mapel_guru d ON a.id_kelas=d.id_kelas AND a.id_mapel=d.id_mapel
-                            INNER JOIN tb_pegawai e ON d.nip=e.nip WHERE a.id_kelas = '$_POST[kelas]' ORDER BY nama_kelas, FIELD(hari, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')");
+                            INNER JOIN tb_mapel b ON a.mapel_id=b.id
+                            INNER JOIN tb_kelas c ON a.kelas_id=c.id_kelas
+                            INNER JOIN tb_mapel_guru d ON a.kelas_id=d.kelas_id AND a.mapel_id=d.mapel_id
+                            INNER JOIN tb_pegawai e ON d.nip=e.nip WHERE a.kelas_id = '$_POST[kelas]' ORDER BY nama_kelas, FIELD(hari, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')");
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>

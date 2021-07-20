@@ -61,7 +61,7 @@
                             <?php
                             include "../../koneksi.php";
                             $modal = mysqli_query($db, "SELECT * FROM tb_kelas a
-                            INNER JOIN tb_pegawai b ON a.wali_kelas=b.nip");
+                            INNER JOIN tb_pegawai b ON a.nip_wali=b.nip");
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>

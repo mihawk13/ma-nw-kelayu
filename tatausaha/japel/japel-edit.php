@@ -66,7 +66,7 @@ include "../../helper.php"; ?>
                                   <?php
                                   $query = mysqli_query($db, "SELECT * FROM tb_kelas WHERE thn_ajaran = '$_SESSION[tahunajaran]'");
                                   while ($r = mysqli_fetch_array($query)) { ?>
-                                    <option <?= ($r['id_kelas'] == $ed['id_kelas']) ? 'selected' : '' ?> value="<?= $r['id_kelas'] ?>">Kelas <?= $r['nama_kelas'] ?></option>
+                                    <option <?= ($r['id_kelas'] == $ed['kelas_id']) ? 'selected' : '' ?> value="<?= $r['id_kelas'] ?>"><?= $r['nama_kelas'] ?></option>
                                   <?php } ?>
                                 </select>
                               </div>
@@ -76,7 +76,7 @@ include "../../helper.php"; ?>
                                   <?php
                                   $query = mysqli_query($db, "SELECT * FROM tb_mapel ORDER BY nama_mapel ASC");
                                   while ($r = mysqli_fetch_array($query)) { ?>
-                                    <option <?= ($r['id'] == $ed['id_mapel']) ? 'selected' : '' ?> value="<?= $r['id'] ?>"><?= $r['nama_mapel'] ?></option>
+                                    <option <?= ($r['id'] == $ed['mapel_id']) ? 'selected' : '' ?> value="<?= $r['id'] ?>"><?= $r['nama_mapel'] ?></option>
                                   <?php } ?>
                                 </select>
                               </div>

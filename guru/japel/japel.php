@@ -63,10 +63,10 @@
                             <?php
                             include "../../koneksi.php";
                             $modal = mysqli_query($db, "SELECT c.nama_kelas, b.nama_mapel, a.hari,a.jam FROM tb_japel a
-                            INNER JOIN tb_mapel b ON a.id_mapel=b.id
-                            INNER JOIN tb_kelas c ON a.id_kelas=c.id_kelas
-                            WHERE a.id_mapel IN (SELECT id_mapel FROM tb_mapel_guru WHERE nip = '$_SESSION[username]' AND thn_ajaran = '$_SESSION[tahunajaran]')
-                            AND a.id_kelas IN (SELECT id_kelas FROM tb_mapel_guru WHERE nip = '$_SESSION[username]' AND thn_ajaran = '$_SESSION[tahunajaran]')");
+                            INNER JOIN tb_mapel b ON a.mapel_id=b.id
+                            INNER JOIN tb_kelas c ON a.kelas_id=c.id_kelas
+                            WHERE a.mapel_id IN (SELECT mapel_id FROM tb_mapel_guru WHERE nip = '$_SESSION[username]' AND thn_ajaran = '$_SESSION[tahunajaran]')
+                            AND a.kelas_id IN (SELECT kelas_id FROM tb_mapel_guru WHERE nip = '$_SESSION[username]' AND thn_ajaran = '$_SESSION[tahunajaran]')");
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
