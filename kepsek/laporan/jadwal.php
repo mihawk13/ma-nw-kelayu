@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -88,7 +88,7 @@
                             INNER JOIN tb_mapel b ON a.id_mapel=b.id
                             INNER JOIN tb_kelas c ON a.id_kelas=c.id_kelas
                             INNER JOIN tb_mapel_guru d ON a.id_kelas=d.id_kelas AND a.id_mapel=d.id_mapel
-                            INNER JOIN tb_guru e ON d.nip=e.nip WHERE a.id_kelas = '$_POST[kelas]' ORDER BY nama_kelas, FIELD(hari, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')");
+                            INNER JOIN tb_pegawai e ON d.nip=e.nip WHERE a.id_kelas = '$_POST[kelas]' ORDER BY nama_kelas, FIELD(hari, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')");
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>

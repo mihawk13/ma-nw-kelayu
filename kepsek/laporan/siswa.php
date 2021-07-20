@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -102,25 +102,25 @@
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
-                                <td><?php echo  $r['nisn']; ?></td>
-                                <td><?php echo  $r['nama_siswa']; ?></td>
-                                <td><?php echo  $r['jk']; ?></td>
-                                <td><?php echo  $r['tempat_lahir']; ?>, <?php echo  $r['tgl_lahir']; ?></td>
-                                <td><?php echo  $r['agama']; ?></td>
-                                <td><?php echo  $r['alamat']; ?></td>
-                                <td><?php echo  $r['telp_siswa']; ?></td>
-                                <td><?php echo  $r['nama_ayah']; ?></td>
-                                <td><?php echo  $r['thn_lahir_ayah']; ?></td>
-                                <td><?php echo  $r['pendidikan_ayah']; ?></td>
-                                <td><?php echo  $r['pekerjaan_ayah']; ?></td>
-                                <td>Rp. <?php echo  $r['penghasilan_ayah']; ?></td>
-                                <td><?php echo  $r['nama_ibu']; ?></td>
-                                <td><?php echo  $r['thn_lahir_ibu']; ?></td>
-                                <td><?php echo  $r['pendidikan_ibu']; ?></td>
-                                <td><?php echo  $r['pekerjaan_ibu']; ?></td>
-                                <td>Rp. <?php echo  $r['penghasilan_ibu']; ?></td>
-                                <td><?php echo  $r['telp_ayah']; ?> | <?php echo  $r['telp_ibu']; ?></td>
-                                <td><?php echo  $r['status_siswa']; ?></td>
+                                <td><?=  $r['nisn']; ?></td>
+                                <td><?=  $r['nama_siswa']; ?></td>
+                                <td><?=  $r['jk']; ?></td>
+                                <td><?=  $r['tempat_lahir']; ?>, <?=  $r['tgl_lahir']; ?></td>
+                                <td><?=  $r['agama']; ?></td>
+                                <td><?=  $r['alamat']; ?></td>
+                                <td><?=  $r['telp_siswa']; ?></td>
+                                <td><?=  $r['nama_ayah']; ?></td>
+                                <td><?=  $r['thn_lahir_ayah']; ?></td>
+                                <td><?=  $r['pendidikan_ayah']; ?></td>
+                                <td><?=  $r['pekerjaan_ayah']; ?></td>
+                                <td>Rp. <?=  $r['penghasilan_ayah']; ?></td>
+                                <td><?=  $r['nama_ibu']; ?></td>
+                                <td><?=  $r['thn_lahir_ibu']; ?></td>
+                                <td><?=  $r['pendidikan_ibu']; ?></td>
+                                <td><?=  $r['pekerjaan_ibu']; ?></td>
+                                <td>Rp. <?=  $r['penghasilan_ibu']; ?></td>
+                                <td><?=  $r['telp_ayah']; ?> | <?=  $r['telp_ibu']; ?></td>
+                                <td><?=  $r['status_siswa']; ?></td>
                               </tr> <?php } ?>
                           </tbody>
                         </table>

@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -61,13 +61,13 @@
                             <?php
                             include "../../koneksi.php";
                             $modal = mysqli_query($db, "SELECT * FROM tb_kelas a
-                            INNER JOIN tb_guru b ON a.wali_kelas=b.nip");
+                            INNER JOIN tb_pegawai b ON a.wali_kelas=b.nip");
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
-                                <td><?php echo  $r['thn_ajaran']; ?></td>
-                                <td><?php echo  $r['nama_kelas']; ?></td>
-                                <td><?php echo  $r['nama']; ?></td><?php } ?>
+                                <td><?=  $r['thn_ajaran']; ?></td>
+                                <td><?=  $r['nama_kelas']; ?></td>
+                                <td><?=  $r['nama']; ?></td><?php } ?>
                           </tbody>
                         </table>
 

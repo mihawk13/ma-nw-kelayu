@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -76,8 +76,8 @@
                                 <td><?= $r['jam']; ?></td>
 
                                 <td align="center">
-                                  <a href="japel-edit.php?id_japel=<?php echo $r['id_japel']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="japel-delete.php?&id_japel=<?php echo  $r['id_japel']; ?>" class="fa fa-trash-o"></a>
+                                  <a href="japel-edit.php?id_japel=<?= $r['id_japel']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <a href="japel-delete.php?&id_japel=<?=  $r['id_japel']; ?>" class="fa fa-trash-o"></a>
                                 </td>
                               </tr> <?php } ?>
                           </tbody>

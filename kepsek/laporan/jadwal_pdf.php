@@ -10,8 +10,8 @@ class PDF extends FPDF
 
         $this->SetX(4);
         $this->SetFont('Arial', 'B', 12);
-        // $this->Image('../../production/images/lg-big.png', 90, 8, 15, 15);
-        $this->Cell(287, 0, 'SD KATOLIK RENTUNG II', 0, 0, 'C');
+        $this->Image('../../production/images/lg-big.jpg', 40, 8, 15, 15);
+        $this->Cell(287, 0, 'MADRASAH ALIYAH NW KELAYU', 0, 0, 'C');
         $this->ln(10);
         $this->SetX(4);
         $this->Cell(287, 0, 'LAPORAN JADWAL PELAJARAN', 0, 0, 'C');
@@ -44,7 +44,7 @@ $modal = mysqli_query($db, "SELECT a.hari,a.jam, e.nama,c.nama_kelas, b.nama_map
 INNER JOIN tb_mapel b ON a.id_mapel=b.id
 INNER JOIN tb_kelas c ON a.id_kelas=c.id_kelas
 INNER JOIN tb_mapel_guru d ON a.id_kelas=d.id_kelas AND a.id_mapel=d.id_mapel
-INNER JOIN tb_guru e ON d.nip=e.nip WHERE a.id_kelas = '$_GET[idkls]' ORDER BY nama_kelas, FIELD(hari, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')");
+INNER JOIN tb_pegawai e ON d.nip=e.nip WHERE a.id_kelas = '$_GET[idkls]' ORDER BY nama_kelas, FIELD(hari, 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu')");
 $pdf->SetFont('Arial', '', 10);
 while ($r = mysqli_fetch_assoc($modal)) {
     $pdf->ln(10);
@@ -63,7 +63,7 @@ $modal = mysqli_query($db, "SELECT * FROM tb_data_sekolah");
 $r = mysqli_fetch_assoc($modal);
 
 $modal = mysqli_query($db, "SELECT b.nama,b.nip FROM tb_kelas a
-INNER JOIN tb_guru b ON a.wali_kelas=b.nip
+INNER JOIN tb_pegawai b ON a.wali_kelas=b.nip
 WHERE a.id_kelas = '$_GET[idkls]'");
 $s = mysqli_fetch_assoc($modal);
 

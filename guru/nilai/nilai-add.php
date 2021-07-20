@@ -13,7 +13,7 @@ include "../../koneksi.php"; ?>
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -113,7 +113,7 @@ include "../../koneksi.php"; ?>
                           }
 
                           mysqli_query($db, "INSERT INTO tb_nilai (id_kelas,id_mapel,nisn,jns_nilai,nilai,thn_ajaran,semester) VALUES ('$idkls', '$idmpl','$nisn','$jns_nilai','$nilai','$thn','$semester')") or die($db->error);
-                          echo "<script>window.location='nilai.php';</script>";
+                          echo "<script>alert('Data berhasil disimpan!');window.location='nilai.php';</script>";
                         }
                         ?>
                         <!-- /SIMPAN -->

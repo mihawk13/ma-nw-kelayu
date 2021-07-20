@@ -18,7 +18,7 @@ include_once("../../koneksi.php");
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -198,7 +198,7 @@ include_once("../../koneksi.php");
                           } else {
                             mysqli_query($db, "INSERT INTO tb_siswa (nisn,nama_siswa,jk,tempat_lahir,tgl_lahir,agama,alamat,telp_siswa,status_siswa,nama_ayah,thn_lahir_ayah,pendidikan_ayah,pekerjaan_ayah,penghasilan_ayah,telp_ayah,nama_ibu,thn_lahir_ibu,pendidikan_ibu,pekerjaan_ibu,penghasilan_ibu,telp_ibu,kelas,username,password) 
                               VALUES ('$nisn','$nama_siswa','$jk','$tempat_lahir','$tgl_lahir','$agama','$alamat','$telp_siswa','$status_siswa','$nama_ayah','$thn_lahir_ayah','$pendidikan_ayah','$pekerjaan_ayah','$penghasilan_ayah','$telp_ayah','$nama_ibu','$thn_lahir_ibu','$pendidikan_ibu','$pekerjaan_ibu','$penghasilan_ibu','$telp_ibu','$kelas','$nisn','$nisn')") or die($db->error);
-                            echo "<script>window.location='siswa.php';</script>";
+                            echo "<script>alert('Data berhasil disimpan!');window.location='siswa.php';</script>";
                           }
                         }
                         ?>

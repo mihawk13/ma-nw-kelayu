@@ -14,7 +14,7 @@ include "../../koneksi.php";
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -62,7 +62,7 @@ include "../../koneksi.php";
                               <select name="nip" id="" class="form-control select2">
                                 <option value="">-- Pilih Wali Kelas --</option>
                                 <?php
-                                $query = mysqli_query($db, "SELECT * FROM tb_guru WHERE nip NOT IN(SELECT wali_kelas FROM tb_kelas WHERE thn_ajaran ='$_SESSION[tahunajaran]')");
+                                $query = mysqli_query($db, "SELECT * FROM tb_pegawai WHERE LEVEL = 'Guru' AND nip NOT IN(SELECT wali_kelas FROM tb_kelas WHERE thn_ajaran ='$_SESSION[tahunajaran]')");
                                 while ($r = mysqli_fetch_array($query)) { ?>
                                   <option value="<?= $r['nip'] ?>"><?= $r['nama'] ?></option>
                                 <?php } ?>
@@ -85,7 +85,7 @@ include "../../koneksi.php";
                           $nama_kelas   = $_POST['nama_kelas'];
 
                           mysqli_query($db, "INSERT INTO tb_kelas (nama_kelas,thn_ajaran,wali_kelas) VALUES ('$nama_kelas','$_SESSION[tahunajaran]','$nip')") or die($db->error);
-                          echo "<script>window.location='kelas.php';</script>";
+                          echo "<script>alert('Data berhasil disimpan!');window.location='kelas.php';</script>";
                         }
                         ?>
                         <!-- /SIMPAN -->

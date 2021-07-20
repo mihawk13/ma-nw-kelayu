@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SIAKAD | SDK RENTUNG II</title>
+    <title>SIAKAD | MA NW Kelayu</title>
 
     <!-- Bootstrap -->
     <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
@@ -22,7 +22,7 @@
     <link href="../assets/iCheck/skins/flat/green.css" rel="stylesheet">
     <!-- Datatables -->
     <!-- Custom Theme Style -->
-    <link href="../build/css/custom.min.css" rel="stylesheet">
+    <link href="../build/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -31,7 +31,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+                        <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
                     </div>
 
                     <div class="clearfix"></div>
@@ -47,7 +47,7 @@
                         <div class="menu_section">
                             <ul class="nav side-menu">
                                 <li>
-                                    <a href="index.php"><i class="fa fa-home"></i> Home </a>
+                                    <a href="index.php"><i class="fa fa-home"></i> Dashboard </a>
                                 </li>
                                 <li><a href="rapot.php"><i class="fa fa-clone"></i>Rapot Siswa</a></li>
                             </ul>
@@ -67,7 +67,7 @@
                         <ul class=" navbar-right">
                             <li class="nav-item dropdown open" style="padding-left: 15px;">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                    <img src="../../production/images/lg-icn.png" alt=""><?= $_SESSION['nama'] ?>
+                                    <img src="../../production/images/lg-icn.jpg" alt=""><?= $_SESSION['nama'] ?>
                                 </a>
                                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
@@ -130,7 +130,7 @@
             <!-- footer content -->
             <footer>
                 <div class="pull-right">
-                    SIAKAD - SDK RENTUNG II <a href="#">V-15.07</a>
+                    SIAKAD - MA NW Kelayu <a href="#">V-15.07</a>
                 </div>
                 <div class="clearfix"></div>
             </footer>

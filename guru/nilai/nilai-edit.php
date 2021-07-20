@@ -13,7 +13,7 @@ include "../../koneksi.php"; ?>
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -138,7 +138,7 @@ include "../../koneksi.php"; ?>
                             $save = mysqli_query($db, "UPDATE tb_nilai SET id_kelas='$idkls', id_mapel='$idmpl', nisn='$nisn', semester='$semester',jns_nilai='$jns_nilai',nilai='$nilai' WHERE id_nilai='$id_nilai' ");
 
                             if ($save) {
-                              echo "<script>window.location='nilai.php';</script>";
+                              echo "<script>alert('Data berhasil disimpan!');window.location='nilai.php';</script>";
                             } else {
                               echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Ups, Data Nilai Gagal Di simpan !</div>';
                             }

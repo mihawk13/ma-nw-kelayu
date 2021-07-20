@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -67,9 +67,9 @@
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
-                                <td><?php echo  $no++; ?></td>
-                                <td><?php echo  $r['tahun']; ?></td>
-                                <td><?php echo  $r['status']; ?></td>
+                                <td><?=  $no++; ?></td>
+                                <td><?=  $r['tahun']; ?></td>
+                                <td><?=  $r['status']; ?></td>
                                 <td align="center">
                                   <?php
                                   if ($r['status'] !== 'Aktif') { ?>

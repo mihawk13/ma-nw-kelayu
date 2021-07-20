@@ -15,7 +15,7 @@ include_once('../../helper.php');
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -64,7 +64,7 @@ include_once('../../helper.php');
                               <!-- FORM KIRI -->
                               <div class="form-group">
                                 <label for="nisn">NISN</label>
-                                <input type="text" id="nisn" placeholder="nisn" name="nisn" class="form-control" value="<?php echo $r['nisn']; ?>" required readonly>
+                                <input type="text" id="nisn" placeholder="nisn" name="nisn" class="form-control" value="<?= $r['nisn']; ?>" required readonly>
                               </div>
                               <div class="form-group">
                                 <label>Kelas</label>
@@ -84,7 +84,7 @@ include_once('../../helper.php');
                               </div>
                               <div class="form-group">
                                 <label for="nama_siswa">Nama Siswa</label>
-                                <input type="text" id="nama_siswa" placeholder="nama_siswa " name="nama_siswa" class="form-control" value="<?php echo $r['nama_siswa']; ?>" required oninvalid="this.setCustomValidity('nama siswa tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="nama_siswa" placeholder="nama_siswa " name="nama_siswa" class="form-control" value="<?= $r['nama_siswa']; ?>" required oninvalid="this.setCustomValidity('nama siswa tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="jk">Jenis Kelamin</label>
@@ -99,27 +99,27 @@ include_once('../../helper.php');
                               </div>
                               <div class="form-group">
                                 <label for="tempat_lahir">Tempat Lahir</label>
-                                <input type="text" id="tempat_lahir" placeholder="tempat lahir " name="tempat_lahir" class="form-control" value="<?php echo $r['tempat_lahir']; ?>" required oninvalid="this.setCustomValidity('tempat lahir tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="tempat_lahir" placeholder="tempat lahir " name="tempat_lahir" class="form-control" value="<?= $r['tempat_lahir']; ?>" required oninvalid="this.setCustomValidity('tempat lahir tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="tgl_lahir">Tanggal Lahir</label>
-                                <input type="date" id="tgl_lahir" placeholder="tgl lahir " name="tgl_lahir" class="form-control" value="<?php echo $r['tgl_lahir']; ?>" required oninvalid="this.setCustomValidity('tgl lahir tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="date" id="tgl_lahir" placeholder="tgl lahir " name="tgl_lahir" class="form-control" value="<?= $r['tgl_lahir']; ?>" required oninvalid="this.setCustomValidity('tgl lahir tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="agama">Agama</label>
-                                <input type="text" id="agama" placeholder="agama " name="agama" class="form-control" value="<?php echo $r['agama']; ?>" required oninvalid="this.setCustomValidity('agama tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="agama" placeholder="agama " name="agama" class="form-control" value="<?= $r['agama']; ?>" required oninvalid="this.setCustomValidity('agama tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="alamat">Alamat</label>
-                                <input type="text" id="alamat" placeholder="alamat " name="alamat" class="form-control" value="<?php echo $r['alamat']; ?>" required oninvalid="this.setCustomValidity('alamat tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="alamat" placeholder="alamat " name="alamat" class="form-control" value="<?= $r['alamat']; ?>" required oninvalid="this.setCustomValidity('alamat tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="telp_siswa">Telp Siswa</label>
-                                <input type="text" id="telp_siswa" placeholder="telp siswa " name="telp_siswa" class="form-control" value="<?php echo $r['telp_siswa']; ?>" required oninvalid="this.setCustomValidity('telp siswa tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="telp_siswa" placeholder="telp siswa " name="telp_siswa" class="form-control" value="<?= $r['telp_siswa']; ?>" required oninvalid="this.setCustomValidity('telp siswa tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="status_siswa">Status Siswa</label>
-                                <input type="text" id="status_siswa" placeholder="status siswa " name="status_siswa" class="form-control" value="<?php echo $r['status_siswa']; ?>" required oninvalid="this.setCustomValidity('status siswa tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="status_siswa" placeholder="status siswa " name="status_siswa" class="form-control" value="<?= $r['status_siswa']; ?>" required oninvalid="this.setCustomValidity('status siswa tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div>
                                 <input type="submit" class="btn btn-success" value="SIMPAN" name="simpan">
@@ -130,11 +130,11 @@ include_once('../../helper.php');
                               <!-- FORM TENGAH -->
                               <div class="form-group">
                                 <label for="nama_ayah">Nama Ayah</label>
-                                <input type="text" id="nama_ayah" placeholder="nama ayah " name="nama_ayah" class="form-control" value="<?php echo $r['nama_ayah']; ?>" required oninvalid="this.setCustomValidity('nama ayah tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="nama_ayah" placeholder="nama ayah " name="nama_ayah" class="form-control" value="<?= $r['nama_ayah']; ?>" required oninvalid="this.setCustomValidity('nama ayah tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="thn_lahir_ayah">Thn.Lhr. Ayah</label>
-                                <input type="text" id="thn_lahir_ayah" placeholder="thn lhr ayah " name="thn_lahir_ayah" class="form-control" value="<?php echo $r['thn_lahir_ayah']; ?>" required oninvalid="this.setCustomValidity('thn lhr ayah tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="thn_lahir_ayah" placeholder="thn lhr ayah " name="thn_lahir_ayah" class="form-control" value="<?= $r['thn_lahir_ayah']; ?>" required oninvalid="this.setCustomValidity('thn lhr ayah tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="pendidikan_ayah">Pendidikan Ayah</label>
@@ -148,15 +148,15 @@ include_once('../../helper.php');
                               </div>
                               <div class="form-group">
                                 <label for="pekerjaan_ayah">Pekerjaan Ayah</label>
-                                <input type="text" id="pekerjaan_ayah" class="form-control" placeholder="pekerjaan ayah" name="pekerjaan_ayah" value="<?php echo $r['pekerjaan_ayah']; ?>" required oninvalid="this.setCustomValidity('pekerjaan ayah tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="pekerjaan_ayah" class="form-control" placeholder="pekerjaan ayah" name="pekerjaan_ayah" value="<?= $r['pekerjaan_ayah']; ?>" required oninvalid="this.setCustomValidity('pekerjaan ayah tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="penghasilan_ayah">Penghasilan Ayah</label>
-                                <input type="text" id="penghasilan_ayah" class="form-control" placeholder="penghasilan ayah" name="penghasilan_ayah" value="<?php echo $r['penghasilan_ayah']; ?>" required oninvalid="this.setCustomValidity('penghasilan ayah tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="penghasilan_ayah" class="form-control" placeholder="penghasilan ayah" name="penghasilan_ayah" value="<?= $r['penghasilan_ayah']; ?>" required oninvalid="this.setCustomValidity('penghasilan ayah tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="telp_ayah">Telp Ayah</label>
-                                <input type="text" id="telp_ayah" class="form-control" placeholder="telp ayah" name="telp_ayah" value="<?php echo $r['telp_ayah']; ?>" required oninvalid="this.setCustomValidity('telp ayah tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="telp_ayah" class="form-control" placeholder="telp ayah" name="telp_ayah" value="<?= $r['telp_ayah']; ?>" required oninvalid="this.setCustomValidity('telp ayah tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                             </div> <!-- /FORM TENGAH -->
 
@@ -164,11 +164,11 @@ include_once('../../helper.php');
                               <!-- FORM KANAN -->
                               <div class="form-group">
                                 <label for="nama_ibu">Nama Ibu</label>
-                                <input type="text" id="nama_ibu" placeholder="nama Ibu " name="nama_ibu" class="form-control" value="<?php echo $r['nama_ibu']; ?>" required oninvalid="this.setCustomValidity('nama Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="nama_ibu" placeholder="nama Ibu " name="nama_ibu" class="form-control" value="<?= $r['nama_ibu']; ?>" required oninvalid="this.setCustomValidity('nama Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="thn_lahir_ibu">Thn.Lhr. Ibu</label>
-                                <input type="text" id="thn_lahir_ibu" placeholder="thn lhr Ibu " name="thn_lahir_ibu" class="form-control" value="<?php echo $r['thn_lahir_ibu']; ?>" required oninvalid="this.setCustomValidity('thn lhr Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="thn_lahir_ibu" placeholder="thn lhr Ibu " name="thn_lahir_ibu" class="form-control" value="<?= $r['thn_lahir_ibu']; ?>" required oninvalid="this.setCustomValidity('thn lhr Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="pendidikan_ibu">Pendidikan Ibu</label>
@@ -182,15 +182,15 @@ include_once('../../helper.php');
                               </div>
                               <div class="form-group">
                                 <label for="pekerjaan_ibu">Pekerjaan Ibu</label>
-                                <input type="text" id="pekerjaan_ibu" class="form-control" placeholder="pekerjaan Ibu" name="pekerjaan_ibu" value="<?php echo $r['pekerjaan_ibu']; ?>" required oninvalid="this.setCustomValidity('pekerjaan Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="pekerjaan_ibu" class="form-control" placeholder="pekerjaan Ibu" name="pekerjaan_ibu" value="<?= $r['pekerjaan_ibu']; ?>" required oninvalid="this.setCustomValidity('pekerjaan Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="penghasilan_ibu">Penghasilan Ibu</label>
-                                <input type="text" id="penghasilan_ibu" class="form-control" placeholder="penghasilan Ibu" name="penghasilan_ibu" value="<?php echo $r['penghasilan_ibu']; ?>" required oninvalid="this.setCustomValidity('penghasilan Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="penghasilan_ibu" class="form-control" placeholder="penghasilan Ibu" name="penghasilan_ibu" value="<?= $r['penghasilan_ibu']; ?>" required oninvalid="this.setCustomValidity('penghasilan Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
                                 <label for="telp_ibu">Telp Ibu</label>
-                                <input type="text" id="telp_ibu" class="form-control" placeholder="telp Ibu" name="telp_ibu" value="<?php echo $r['telp_ibu']; ?>" required oninvalid="this.setCustomValidity('telp Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="telp_ibu" class="form-control" placeholder="telp Ibu" name="telp_ibu" value="<?= $r['telp_ibu']; ?>" required oninvalid="this.setCustomValidity('telp Ibu tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                             </div> <!-- /FORM KANAN -->
                           </form> <?php } ?>
@@ -225,7 +225,7 @@ include_once('../../helper.php');
                           $save = mysqli_query($db, "UPDATE tb_siswa SET kelas = '$kelas', nisn='$nisn',nama_siswa='$nama_siswa',jk='$jk',tempat_lahir='$tempat_lahir',tgl_lahir='$tgl_lahir',agama='$agama',alamat='$alamat',telp_siswa='$telp_siswa',status_siswa='$status_siswa',nama_ayah='$nama_ayah',thn_lahir_ayah='$thn_lahir_ayah',pendidikan_ayah='$pendidikan_ayah',pekerjaan_ayah='$pekerjaan_ayah',penghasilan_ayah='$penghasilan_ayah',telp_ayah='$telp_ayah',nama_ibu='$nama_ibu',thn_lahir_ibu='$thn_lahir_ibu',pendidikan_ibu='$pendidikan_ibu',pekerjaan_ibu='$pekerjaan_ibu',penghasilan_ibu='$penghasilan_ibu',telp_ibu='$telp_ibu' WHERE nisn='$nisn' ");
 
                           if ($save) {
-                            echo "<script>window.location='siswa.php';</script>";
+                            echo "<script>alert('Data berhasil disimpan!');window.location='siswa.php';</script>";
                           } else {
                             echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Ups, Data Siswa Gagal Di simpan !</div>';
                           }

@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -70,15 +70,15 @@
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
-                                <td><?php echo  $r['nip']; ?></td>
-                                <td><?php echo  $r['nama']; ?></td>
-                                <td><?php echo  $r['jk']; ?></td>
-                                <td><?php echo  $r['tempat_lahir']; ?>, <?php echo  $r['tgl_lahir']; ?></td>
-                                <td><?php echo  $r['status_kerja']; ?></td>
-                                <td><?php echo  $r['agama']; ?></td>
-                                <td><?php echo  $r['alamat']; ?></td>
-                                <td><?php echo  $r['telp']; ?></td>
-                                <td><?php echo  $r['email']; ?></td>
+                                <td><?=  $r['nip']; ?></td>
+                                <td><?=  $r['nama']; ?></td>
+                                <td><?=  $r['jk']; ?></td>
+                                <td><?=  $r['tempat_lahir']; ?>, <?=  $r['tgl_lahir']; ?></td>
+                                <td><?=  $r['status_kerja']; ?></td>
+                                <td><?=  $r['agama']; ?></td>
+                                <td><?=  $r['alamat']; ?></td>
+                                <td><?=  $r['telp']; ?></td>
+                                <td><?=  $r['email']; ?></td>
                               </tr> <?php } ?>
                           </tbody>
                         </table>

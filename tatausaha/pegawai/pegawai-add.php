@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-<?php include_once('../layouts/head.html') ?>
+  <?php include_once('../layouts/head.html') ?>
 </head>
 
 <body class="nav-md">
@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -43,10 +43,10 @@
                 <div class="x_content">
                   <div class="row">
                     <div class="col-sm-12">
-                      <div class="card-box table-responsive">
+                      <div class="card-box">
                         <p class="text-muted font-13 m-b-30">
-                          <h2>TAMBAH DATA PEGAWAI</h2>
-                          <hr>
+                        <h2>TAMBAH DATA PEGAWAI</h2>
+                        <hr>
                         </p>
 
                         <div class="x_content">
@@ -55,21 +55,45 @@
                             <div class="col-md-4">
                               <!-- FORM KIRI -->
                               <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Nama Pegawai" name="nama" required oninvalid="this.setCustomValidity('nama pegawai tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" class="form-control" placeholder="Masukkan NIP" name="nip" required oninvalid="this.setCustomValidity('nip tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Username" name="username" required oninvalid="this.setCustomValidity('username tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input type="text" id="nama" class="form-control" placeholder="Masukkan Nama" name="nama" required oninvalid="this.setCustomValidity('nama tidak boleh kosong')" oninput="setCustomValidity('')">
                               </div>
                               <div class="form-group">
-                                <input type="password" class="form-control" placeholder="Password" name="password" required oninvalid="this.setCustomValidity('password tidak boleh kosong')" oninput="setCustomValidity('')">
-                              </div>
-                              <div class="form-group">
-                                <select name="level" class="form-control" required oninvalid="this.setCustomValidity('Pilih Level Anda!')" oninput="setCustomValidity('')">
-                                  <option value=""> -- Pilih Level --</option>
-                                  <option value="Tata Usaha">Tata Usaha</option>
-                                  <option value="Kepala Sekolah">Kepala Sekolah</option>
+                                <select name="jk" id="jk" class="form-control" required oninvalid="this.setCustomValidity('Pilih Jenis Kelamin Pegawai!')" oninput="setCustomValidity('')">
+                                  <option value=""> -- Pilih Jenis Kelamin --</option>
+                                  <option value="Laki-Laki">Laki-Laki</option>
+                                  <option value="Perempuan">Perempuan</option>
                                 </select>
                               </div>
+                              <div class="form-group">
+                                <input type="text" id="tempat_lahir" class="form-control" placeholder="Masukkan Tempat Lahir" name="tempat_lahir" required oninvalid="this.setCustomValidity('tempat lahir tidak boleh kosong')" oninput="setCustomValidity('')">
+                              </div>
+                              <div class="form-group">
+                                <input type="date" id="tgl_lahir" class="form-control" placeholder="Masukkan Tanggal Lahir" name="tgl_lahir" required oninvalid="this.setCustomValidity('tgl lahir tidak boleh kosong')" oninput="setCustomValidity('')">
+                              </div>
+                              <div class="form-group">
+                                <input type="text" id="alamat" class="form-control" placeholder="Masukkan Alamat" name="alamat" required oninvalid="this.setCustomValidity('alamat tidak boleh kosong')" oninput="setCustomValidity('')">
+                              </div>
+                              <div class="form-group">
+                                <input type="text" id="telp" class="form-control" placeholder="Masukkan Telp" name="telp" required oninvalid="this.setCustomValidity('telp tidak boleh kosong')" oninput="setCustomValidity('')">
+                              </div>
+                              <div class="form-group">
+                                <select name="level" class="form-control" required oninvalid="this.setCustomValidity('Pilih Level Pegawai!')" oninput="setCustomValidity('')">
+                                  <option value=""> -- Pilih Level Pegawai --</option>
+                                  <option value="Kepala Sekolah">Kepala Sekolah</option>
+                                  <option value="Guru">Guru</option>
+                                  <option value="Tata Usaha">Tata Usaha</option>
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <input type="text" placeholder="Masukkan Username " name="username" class="form-control" required oninvalid="this.setCustomValidity('Username tidak boleh kosong')" oninput="setCustomValidity('')">
+                              </div>
+                              <div class="form-group">
+                                <input type="password" placeholder="Masukkan Password " name="password" class="form-control" required oninvalid="this.setCustomValidity('Username tidak boleh kosong')" oninput="setCustomValidity('')">
+                              </div>
+
                               <div>
                                 <input type="submit" class="btn btn-success" value="SIMPAN" name="simpan">
                               </div>
@@ -79,14 +103,27 @@
                           <?php
                           include "../../koneksi.php";
                           if (isset($_POST['simpan'])) {
-                            $nama     = $_POST['nama'];
-                            $level  = $_POST['level'];
-                            $username = $_POST['username'];
-                            $password = $_POST['password'];
+                            $nip = $_POST['nip'];
+                            $nama = $_POST['nama'];
+                            $jk         = $_POST['jk'];
+                            $tempat_lahir   = $_POST['tempat_lahir'];
+                            $tgl_lahir      = $_POST['tgl_lahir'];
+                            $agama      = $_POST['agama'];
+                            $telp      = $_POST['telp'];
+                            $level   = $_POST['level'];
+                            $username      = $_POST['username'];
+                            $password   = $_POST['password'];
+                            $alamat   = $_POST['alamat'];
 
-                           mysqli_query($db, "INSERT INTO tb_pegawai (nama,username,password,level) VALUES ('$nama', '$username', '$password', '$level')") or die($db->error);
-                           echo "<script>window.location='pegawai.php';</script>";
-                            
+
+                            $query = mysqli_query($db, "SELECT * FROM tb_pegawai WHERE nip = '$nip' ");
+                            $cek = mysqli_num_rows($query);
+                            if ($cek >= 1) {
+                              echo "<script> alert('NIP yang anda masukkan sudah pernah diinput, Coba Periksa Lagi!');window.location='pegawai.php';</script>";
+                            } else {
+                              mysqli_query($db, "INSERT INTO tb_pegawai (nip,nama,jk,tempat_lahir,tgl_lahir,level,alamat,telp,username,password) VALUES ('$nip','$nama','$jk','$tempat_lahir','$tgl_lahir','$level','$alamat','$telp','$username','$password')") or die($db->error);
+                              echo "<script>alert('Data berhasil disimpan!');window.location='pegawai.php';</script>";
+                            }
                           }
                           ?>
                           <!-- /SIMPAN -->

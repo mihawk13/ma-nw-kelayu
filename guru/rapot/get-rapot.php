@@ -205,30 +205,8 @@ $ketTinggi = $rpt['e_tinggi_badan'];
 $ketBerat = $rpt['e_berat_badan'];
 $ketLainnya = '';
 
-$sakit = 0;
-$ijin = 0;
-$tanpaKeterangan = 0;
-
-$modal = mysqli_query($db, "SELECT *, COUNT(ket_absen) jml FROM tb_absen
-GROUP BY tahun_ajaran,nisn,ket_absen");
-while ($absn = mysqli_fetch_assoc($modal)) {
-    if ($absn['ket_absen'] == 'Sakit') {
-        $sakit = $absn['jml'];
-    }
-    if ($absn['ket_absen'] == 'Ijin') {
-        $ijin = $absn['jml'];
-    }
-    if ($absn['ket_absen'] == 'Tanpa Keterangan') {
-        $tanpaKeterangan = $absn['jml'];
-    }
-}
-
-$sakit = $sakit . ' hari';
-$ijin = $ijin . ' hari';
-$tanpaKeterangan = $tanpaKeterangan . ' hari';
-
 $modal = mysqli_query($db, "SELECT a.*, b.nama FROM tb_kelas a
-INNER JOIN tb_guru b ON a.wali_kelas=b.nip
+INNER JOIN tb_pegawai b ON a.wali_kelas=b.nip
 WHERE a.id_kelas IN(SELECT kelas FROM tb_siswa WHERE nisn = '$nisn')");
 $kls = mysqli_fetch_assoc($modal);
 
@@ -358,7 +336,7 @@ LEFT JOIN (SELECT c.id 'id_mapel',a.nisn,a.thn_ajaran, (SUM(a.nilai) / COUNT(a.n
                             INNER JOIN tb_mapel c ON a.id_mapel=c.id
                             INNER JOIN tb_kelas d ON a.id_kelas=d.id_kelas
                             WHERE a.nisn = '$nisn' AND a.thn_ajaran = '$thnAjaran' AND a.semester = '$smt'
-                            GROUP BY nisn, id_mapel, thn_ajaran, semester) c ON a.id = c.id_mapel ORDER BY mulok");
+                            GROUP BY nisn, id_mapel, thn_ajaran, semester) c ON a.id = c.id_mapel");
 $no = 1;
 $ml = 0;
 while ($mpl = mysqli_fetch_array($query)) {
@@ -466,44 +444,10 @@ while ($mpl = mysqli_fetch_array($query)) {
 }
 #endregion
 
-#region "C. Ekstra Kurikuler"
-$pdf->ln(15);
-$pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(190, 0, 'C. Ekstra Kurikuler', 0, 0, 'L');
-$pdf->ln(7);
-
-$pdf->setFillColor(210, 210, 210);
-$pdf->Cell(7, 10, 'No', 1, 0, 'C', 1);
-
-$xPos = $pdf->GetX();
-$yPos = $pdf->GetY();
-
-$pdf->MultiCell(55, 10, 'Kegiatan Ekstra Kurikuler', 1, 'C', 1);
-
-$pdf->SetXY($xPos + 55, $yPos);
-$pdf->Cell(128, 10, 'Keterangan', 1, 0, 'C', 1);
-
-$modal = mysqli_query($db, "SELECT * FROM tb_extra a
-INNER JOIN tb_extra_siswa c ON a.id=c.id_extra
-LEFT JOIN (SELECT * FROM tb_raport_extra WHERE id_raport = '$id') b ON a.id = b.id_extra WHERE c.nisn = '$nisn'");
-$no = 1;
-while ($ext = mysqli_fetch_array($modal)) {
-    $pdf->SetFont('Arial', '', 10);
-    $pdf->ln(10);
-    $pdf->Cell(7, 10, $no++, 1, 0, 'C');
-    $xPos = $pdf->GetX();
-    $yPos = $pdf->GetY();
-    $pdf->MultiCell(55, 10, $ext['nama_extra'], 1, 'L');
-    $pdf->SetXY($xPos + 55, $yPos);
-    $pdf->SetFont('Arial', 'I', 10);
-    $pdf->Cell(128, 10, $ext['keterangan'], 1, 0, 'L');
-}
-#endregion
-
-#region "D. Saran-Saran"
+#region "C. Saran-Saran"
 $pdf->ln(30);
 $pdf->SetFont('Arial', 'B', 10);
-$pdf->Cell(190, 0, 'D. Saran-saran', 0, 0, 'L');
+$pdf->Cell(190, 0, 'C. Saran-saran', 0, 0, 'L');
 $pdf->ln(7);
 
 

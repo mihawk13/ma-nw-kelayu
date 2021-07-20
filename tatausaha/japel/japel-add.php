@@ -14,7 +14,7 @@ include "../../helper.php"; ?>
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -104,7 +104,7 @@ include "../../helper.php"; ?>
                           $thn      = $_SESSION['tahunajaran'];
 
                           mysqli_query($db, "INSERT INTO tb_japel (id_kelas,id_mapel,hari,jam,tahun_ajaran) VALUES ('$id_kelas','$id_mapel','$hari','$jam','$thn')") or die($db->error);
-                          echo "<script>window.location='japel.php';</script>";
+                          echo "<script>alert('Data berhasil disimpan!');window.location='japel.php';</script>";
                         }
                         ?>
                         <!-- /SIMPAN -->

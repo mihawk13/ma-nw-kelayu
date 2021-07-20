@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -55,7 +55,6 @@
                             <tr>
                               <th>No</th>
                               <th>Mata Pelajaran</th>
-                              <th>Muatan Lokal</th>
                               <th>Aksi</th>
                             </tr>
                           </thead>
@@ -69,11 +68,10 @@
                               <tr>
                                 <td><?= $no++; ?></td>
                                 <td><?= $r['nama_mapel']; ?></td>
-                                <td><?= ($r['mulok']==0) ? 'Tidak' : 'Ya' ?></td>
 
                                 <td align="center">
-                                  <a href="mapel-edit.php?id_mapel=<?php echo $r['id']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="mapel-delete.php?&id_mapel=<?php echo  $r['id']; ?>" class="fa fa-trash-o"></a>
+                                  <a href="mapel-edit.php?id_mapel=<?= $r['id']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <a href="mapel-delete.php?&id_mapel=<?=  $r['id']; ?>" class="fa fa-trash-o"></a>
                                 </td>
                               </tr> <?php } ?>
                           </tbody>

@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -62,13 +62,8 @@
                               <input type="hidden" name="id_mapel" value="<?= $r['id']; ?>" required readonly>
                               <div class="form-group">
                                 <label for="nama_mapel">Mata Pelajaran</label>
-                                <input type="text" id="nama_mapel" placeholder="nama pelajaran " name="nama_mapel" class="form-control" value="<?php echo $r['nama_mapel']; ?>" required oninvalid="this.setCustomValidity('nama pelajaran tidak boleh kosong')" oninput="setCustomValidity('')">
-                              </div>
-                              <label>Centang Jika Mata Pelajaran Muatan Lokal</label><br>
-                              <div class="form-check">
-                                <input type="checkbox" id="ml" name="ml" value="1" class="form-check-input" <?= ($r['mulok']==1) ? 'checked' : '' ?>>
-                                <label for="ml" class="form-check-label"> Muatan Lokal</label><br>
-                              </div><br>
+                                <input type="text" id="nama_mapel" placeholder="nama pelajaran " name="nama_mapel" class="form-control" value="<?= $r['nama_mapel']; ?>" required oninvalid="this.setCustomValidity('nama pelajaran tidak boleh kosong')" oninput="setCustomValidity('')">
+                              </div>                              
                               <div>
                                 <input type="submit" class="btn btn-success" value="SIMPAN" name="simpan">
                               </div>
@@ -80,12 +75,11 @@
                         if (isset($_POST['simpan'])) {
                           $id_mapel     = $_POST['id_mapel'];
                           $nama_mapel   = $_POST['nama_mapel'];
-                          $mulok        = $_POST['ml'];
 
-                          $save = mysqli_query($db, "UPDATE tb_mapel SET nama_mapel='$nama_mapel',mulok='$mulok' WHERE id='$id_mapel' ");
+                          $save = mysqli_query($db, "UPDATE tb_mapel SET nama_mapel='$nama_mapel' WHERE id='$id_mapel' ");
 
                           if ($save) {
-                            echo "<script>window.location='mapel.php';</script>";
+                            echo "<script>alert('Data berhasil disimpan!');window.location='mapel.php';</script>";
                           } else {
                             echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Ups, Data Pelajaran Gagal Di simpan !</div>';
                           }

@@ -12,7 +12,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -68,13 +68,13 @@
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
-                                <td><?php echo  $r['id_absen']; ?></td>
-                                <td><?php echo  $r['nama_siswa']; ?></td>
-                                <td><?php echo  $r['tgl_absen']; ?></td>
-                                <td><?php echo  $r['ket_absen']; ?></td>
+                                <td><?=  $r['id_absen']; ?></td>
+                                <td><?=  $r['nama_siswa']; ?></td>
+                                <td><?=  $r['tgl_absen']; ?></td>
+                                <td><?=  $r['ket_absen']; ?></td>
                                 <td align="center">
-                                  <a href="absen-edit.php?id_absen=<?php echo $r['id_absen']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                  <a href="absen-delete.php?&id_absen=<?php echo  $r['id_absen']; ?>" class="fa fa-trash-o"></a>
+                                  <a href="absen-edit.php?id_absen=<?= $r['id_absen']; ?>" class="fa fa-edit" -></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                  <a href="absen-delete.php?&id_absen=<?=  $r['id_absen']; ?>" class="fa fa-trash-o"></a>
                                 </td>
                               </tr> <?php } ?>
                           </tbody>

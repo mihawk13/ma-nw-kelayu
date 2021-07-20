@@ -13,7 +13,7 @@ include "../../koneksi.php"; ?>
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -57,11 +57,6 @@ include "../../koneksi.php"; ?>
                             <div class="form-group">
                               <label>Mata Pelajaran</label>
                               <input type="text" id="nama_mapel" class="form-control" placeholder="Masukkan Nama Mata Pelajaran" name="nama_mapel" required oninvalid="this.setCustomValidity('nama mapel tidak boleh kosong')" oninput="setCustomValidity('')">
-                            </div>
-                            <label>Centang Jika Mata Pelajaran Muatan Lokal</label><br>
-                            <div class="form-check">
-                              <input type="checkbox" id="ml" name="ml" value="1" class="form-check-input">
-                              <label for="ml" class="form-check-label"> Muatan Lokal</label><br>
                             </div><br>
 
                             <div>
@@ -74,10 +69,9 @@ include "../../koneksi.php"; ?>
                         if (isset($_POST['simpan'])) {
 
                           $nama_mapel = $_POST['nama_mapel'];
-                          $mulok = $_POST['ml'];
 
-                          mysqli_query($db, "INSERT INTO tb_mapel (nama_mapel,mulok) VALUES ('$nama_mapel','$mulok')") or die($db->error);
-                          echo "<script>window.location='mapel.php';</script>";
+                          mysqli_query($db, "INSERT INTO tb_mapel (nama_mapel) VALUES ('$nama_mapel')") or die($db->error);
+                          echo "<script>alert('Data berhasil disimpan!');window.location='mapel.php';</script>";
                         }
                         ?>
                         <!-- /SIMPAN -->

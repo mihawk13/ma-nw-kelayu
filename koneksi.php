@@ -1,5 +1,5 @@
 <?php
-$db = mysqli_connect("localhost", "root", "", "akademik_sdk_rentung");
+$db = mysqli_connect("localhost", "root", "", "ma-nw-kelayu");
 $thnAjaran = date('Y') . '/' . (date('Y') + 1);
 
 // function tglIndo($date)

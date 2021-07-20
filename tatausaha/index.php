@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-  <title>SIAKAD | SDK RENTUNG II</title>
+  <title>SIAKAD | MA NW Kelayu</title>
 
   <!-- Bootstrap -->
   <link href="../assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
   <link href="../assets/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
   <!-- Custom Theme Style -->
-  <link href="../build/css/custom.min.css" rel="stylesheet">
+  <link href="../build/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -38,7 +38,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -54,35 +54,27 @@
             <div class="menu_section">
               <ul class="nav side-menu">
                 <li>
-                  <a href="index.php"><i class="fa fa-home"></i> Home </a>
+                  <a href="index.php"><i class="fa fa-home"></i> Dashboard </a>
+                </li>
+                <li>
+                  <a href="pegawai/pegawai.php"><i class="fa fa-users"></i> Data Pegawai </a>
+                </li>
+                <li>
+                  <a href="siswa/siswa.php"><i class="fa fa-user"></i> Data Siswa </a>
+                </li>
+                <li>
+                  <a href="mapel/mapel.php"><i class="fa fa-book"></i> Data Pelajaran </a>
+                </li>
+                <li>
+                  <a href="kelas/kelas.php"><i class="fa fa-bank"></i> Data Kelas </a>
+                </li>
+                <li>
+                  <a href="japel/japel.php"><i class="fa fa-calendar-o"></i> Data Jadwal Pelajaran </a>
                 </li>
                 <li><a><i class="fa fa-cog"></i>Setting <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu">
                     <li><a href="tahunajaran/tahunajaran.php">Tahun Ajaran</a></li>
                     <li><a href="datasekolah/datasekolah.php">Data Sekolah</a></li>
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-edit"></i> Master Data <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="pegawai/pegawai.php">Data Pegawai</a></li>
-                    <li><a href="mapel/mapel.php">Data Pelajaran</a></li>
-                    <li><a href="extra/extra.php">Data Extrakurikuler</a></li>
-                    <li><a href="kelas/kelas.php">Data Kelas</a></li>
-                    <li><a href="guru/guru.php">Data Guru</a></li>
-                    <li><a href="siswa/siswa.php">Data Siswa</a></li>
-                    <li><a href="absen/absen.php">Data Absensi</a></li>
-                    <li><a href="japel/japel.php">Data Jadwal Pelajaran</a></li>
-                    <!-- <li><a href="naikkelas/naikkelas.php">Naik Kelas</a></li> -->
-                  </ul>
-                </li>
-                <li><a><i class="fa fa-clone"></i>Laporan <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu">
-                    <li><a href="laporan/siswa.php">Laporan Data Siswa</a></li>
-                    <li><a href="laporan/absen.php">Laporan Data Absen Siswa</a></li>
-                    <li><a href="laporan/nilai.php">Laporan Data Nilai</a></li>
-                    <li><a href="laporan/guru.php">Laporan Data Guru</a></li>
-                    <li><a href="laporan/jadwal.php">Laporan Jadwal Pelajaran</a></li>
-                    <li><a href="laporan/kelas.php">Laporan Data Kelas</a></li>
                   </ul>
                 </li>
               </ul>
@@ -102,7 +94,7 @@
             <ul class=" navbar-right">
               <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <img src="../../production/images/lg-icn.png" alt=""><?= $_SESSION['nama'] ?>
+                  <img src="../../production/images/lg-icn.jpg" alt=""><?= $_SESSION['nama'] ?>
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
@@ -114,16 +106,12 @@
       </div><!-- /top navigation -->
       <div>ex</div>
 
-       <!-- page content -->
+      <!-- page content -->
       <div class="right_col" role="main">
 
         <div class="row">
           <div class="col-md-12 col-sm-12 ">
-            <div class="row">
-              <h1>
-                <P>SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK <br> SDK RENTUNG II</P>
-              </h1>
-            </div>
+            <?php include './dashboard.php' ?>
           </div><!-- /class="col-md-8 col-sm-8 " -->
         </div> <!-- /class="row" -->
       </div> <!-- /class="right_col" role="main" -->
@@ -132,7 +120,7 @@
       <!-- footer content -->
       <footer>
         <div class="pull-right">
-          S.I.A.K V15.07 - SDK Rentung II
+          S.I.A.K V15.07 - MA NW Kelayu
         </div>
         <div class="clearfix"></div>
       </footer>

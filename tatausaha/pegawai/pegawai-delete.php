@@ -1,6 +1,6 @@
 <?php
 	include "../../koneksi.php";
-	$id_pegawai=$_GET['id_pegawai'];
-	$modal=mysqli_query($db,"DELETE FROM tb_pegawai WHERE id_pegawai='$id_pegawai'");
-	echo "<script>window.location='pegawai.php';</script>";
+	$nip=$_GET['nip'];
+	$modal=mysqli_query($db,"DELETE FROM tb_pegawai WHERE nip='$nip'");
+	echo "<script>alert('Data berhasil disimpan!');window.location='pegawai.php';</script>";
 ?>

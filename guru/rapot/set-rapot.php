@@ -15,7 +15,7 @@ include "../../helper.php";
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDN 6 Panjer</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>SDN 6 Panjer</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -97,28 +97,7 @@ include "../../helper.php";
                               <div class="form-group">
                                 <label>Saran Saran</label>
                                 <input type="text" class="form-control" placeholder="Masukkan saran-saran untuk siswa" id="saran" name="saran" value="<?= $rpt['d_saran_saran'] ?>">
-                              </div>
-                              <table class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-                                <thead>
-                                  <tr>
-                                    <td>Extra Kurikuler</td>
-                                    <td>Keterangan</td>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <?php
-                                  $modal = mysqli_query($db, "SELECT * FROM tb_extra a
-                                  INNER JOIN tb_extra_siswa c ON a.id=c.id_extra
-                                      LEFT JOIN (SELECT * FROM tb_raport_extra WHERE id_raport = '$rpt[id]') b ON a.id = b.id_extra WHERE c.nisn = '$_GET[nisn]'");
-                                  while ($ext = mysqli_fetch_array($modal)) { ?>
-                                    <input type="hidden" name="id_extra[]" value="<?= $ext['id'] ?>">
-                                    <tr>
-                                      <td><?= $ext['nama_extra'] ?></td>
-                                      <td><textarea name="extra_<?= $ext['id'] ?>" rows="3"><?= $ext['keterangan'] ?></textarea></td>
-                                    </tr>
-                                  <?php } ?>
-                                </tbody>
-                              </table>
+                              </div>                              
                             </div>
                           </div>
                           <div class="row">
@@ -211,14 +190,6 @@ include "../../helper.php";
 
                             mysqli_query($db, "INSERT INTO tb_raport_detail VALUES('$id', '$val', '$png', '$ktr') 
                               ON DUPLICATE KEY UPDATE pengetahuan = '$png', keterampilan = '$ktr'") or die($db->error);
-                          }
-
-                          // insert tb_raport_extra
-                          foreach ($_POST['id_extra'] as $val) {
-                            $ket = $_POST['extra_' . $val];
-
-                            mysqli_query($db, "INSERT INTO tb_raport_extra VALUES('$id', '$val', '$ket') 
-                              ON DUPLICATE KEY UPDATE keterangan = '$ket'") or die($db->error);
                           }
 
                           echo "<script>alert('Data raport berhasil diinput');window.location='rapot.php';</script>";

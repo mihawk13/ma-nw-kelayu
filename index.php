@@ -20,7 +20,7 @@ if (@$_SESSION['level'] == 'Tata Usaha') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SIAKAD | SDK RENTUNG II </title>
+    <title>SIAKAD | MA NW KELAYU </title>
 
     <!-- Bootstrap -->
     <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,10 +43,10 @@ if (@$_SESSION['level'] == 'Tata Usaha') {
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <img src="production/images/lg-big.png" width="85%" height="85%">
+            <img src="production/images/lg-big.jpg" width="85%" height="85%">
             <form action="index.php" method="POST">
 
-              <h1>SDK RENTUNG II</h1>
+              <h1>MA NW KELAYU</h1>
               <div>
                 <input type="text" class="form-control" name="username" placeholder="Username" required="" />
               </div>
@@ -69,10 +69,6 @@ if (@$_SESSION['level'] == 'Tata Usaha') {
               $sql = mysqli_query($db, "SELECT * FROM (
 
                 SELECT nama, username, level FROM tb_pegawai WHERE username='$user' AND PASSWORD='$pass'
-                
-                UNION ALL
-                
-                SELECT nama, username, 'Guru' AS level FROM tb_guru WHERE username='$user' AND PASSWORD='$pass'
                 
                 UNION ALL
                 

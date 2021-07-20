@@ -13,7 +13,7 @@ include "../../koneksi.php"; ?>
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -73,13 +73,13 @@ include "../../koneksi.php"; ?>
                             while ($r = mysqli_fetch_assoc($modal)) {
                             ?>
                               <tr>
-                                <td><?php echo  $r['nama_kelas']; ?></td>
-                                <td><?php echo  $r['nama_mapel']; ?></td>
-                                <td><?php echo  $r['nama_siswa']; ?></td>
-                                <td><?php echo  $r['thn_ajaran']; ?></td>
-                                <td><?php echo  $r['semester']; ?></td>
-                                <td><?php echo  $r['jns_nilai']; ?></td>
-                                <td><?php echo  $r['nilai']; ?></td>
+                                <td><?=  $r['nama_kelas']; ?></td>
+                                <td><?=  $r['nama_mapel']; ?></td>
+                                <td><?=  $r['nama_siswa']; ?></td>
+                                <td><?=  $r['thn_ajaran']; ?></td>
+                                <td><?=  $r['semester']; ?></td>
+                                <td><?=  $r['jns_nilai']; ?></td>
+                                <td><?=  $r['nilai']; ?></td>
                               </tr> <?php } ?>
                           </tbody>
                         </table>

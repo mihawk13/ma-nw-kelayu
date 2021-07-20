@@ -13,7 +13,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -106,7 +106,7 @@
                             $save = mysqli_query($db, "UPDATE tb_absen SET id_absen='$id_absen',nisn='$nisn',tgl_absen='$tgl_absen',ket_absen='$ket_absen' WHERE id_absen='$id_absen' ");
 
                             if ($save) {
-                              echo "<script>window.location='absen.php';</script>";
+                              echo "<script>alert('Data berhasil disimpan!');window.location='absen.php';</script>";
                             } else {
                               echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Ups, Data Absen Gagal Di simpan !</div>';
                             }

@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="images/favicon.ico" type="image/ico" />
 
-  <title>SIAKAD | SDK RENTUNG II</title>
+  <title>SIAKAD | MA NW Kelayu</title>
 
   <!-- Bootstrap -->
   <link href="../assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,7 +29,7 @@
   <link href="../assets/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
   <!-- Custom Theme Style -->
-  <link href="../build/css/custom.min.css" rel="stylesheet">
+  <link href="../build/css/custom.css" rel="stylesheet">
 </head>
 
 <body class="nav-md">
@@ -38,7 +38,7 @@
       <div class="col-md-3 left_col">
         <div class="left_col scroll-view">
           <div class="navbar nav_title" style="border: 0;">
-            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.png" alt="..."> <span>SDK Rentung II</span></a>
+            <a href="index.php" class="site_title"><img src="../../production/images/lg-icn.jpg" alt="..."> <span>MA NW Kelayu</span></a>
           </div>
 
           <div class="clearfix"></div>
@@ -54,7 +54,7 @@
             <div class="menu_section">
               <ul class="nav side-menu">
                 <li>
-                  <a href="index.php"><i class="fa fa-home"></i> Home </a>
+                  <a href="index.php"><i class="fa fa-home"></i> Dashboard </a>
                 </li>
                 <li><a href="rapot.php"><i class="fa fa-clone"></i>Rapot Siswa</a></li>
               </ul>
@@ -74,7 +74,7 @@
             <ul class=" navbar-right">
               <li class="nav-item dropdown open" style="padding-left: 15px;">
                 <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                  <img src="../../production/images/lg-icn.png" alt=""><?=$_SESSION['nama']?>
+                  <img src="../../production/images/lg-icn.jpg" alt=""><?=$_SESSION['nama']?>
                 </a>
                 <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
@@ -93,7 +93,7 @@
           <div class="col-md-12 col-sm-12 ">
             <div class="row">
               <h1>
-                <P>SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK <br> SDK RENTUNG II</P>
+                <P>SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK MA NW KELAYU</P>
               </h1>
             </div>
           </div><!-- /class="col-md-8 col-sm-8 " -->
@@ -104,7 +104,7 @@
       <!-- footer content -->
       <footer>
         <div class="pull-right">
-          S.I.A.K V15.07 - SDK Rentung II
+          S.I.A.K V15.07 - MA NW Kelayu
         </div>
         <div class="clearfix"></div>
       </footer>

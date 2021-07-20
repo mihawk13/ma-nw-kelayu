@@ -3,7 +3,7 @@
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid">
-                <h3 class="col mt-4">SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK SDK Rentung II</h3>
+                <h3 class="col mt-4">SELAMAT DATANG DI SISTEM INFORMASI AKADEMIK MA NW KELAYU</h3>
                 <div class="row mt-4">
                     <div class="col-xl-4 col-md-6">
                         <div class="card bg-primary text-white mb-4">
