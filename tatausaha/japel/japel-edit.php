@@ -106,7 +106,7 @@ include "../../helper.php"; ?>
                           $hari     = $_POST['hari'];
                           $jam      = $_POST['jam'];
                           
-                          $save = mysqli_query($db, "UPDATE tb_japel SET id_kelas='$id_kelas',id_mapel='$id_mapel',hari='$hari',jam='$jam' WHERE id='$_GET[id_japel]' ");
+                          $save = mysqli_query($db, "UPDATE tb_japel SET kelas_id='$id_kelas',mapel_id='$id_mapel',hari='$hari',jam='$jam' WHERE id='$_GET[id_japel]' ");
 
                           if ($save) {
                             echo "<script>alert('Data berhasil disimpan!');window.location='japel.php';</script>";

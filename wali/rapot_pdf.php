@@ -182,7 +182,7 @@ class PDF_1 extends FPDF
 
 $nisn = $_SESSION['username'];
 $thnAjaran = $_POST['thn'];
-$smt = $_POST['smt'];
+$smt = ($_POST['smt']==1) ? '1 - Ganjil' : '2 - Genap';
 
 $query = mysqli_query($db, "SELECT * FROM tb_siswa a INNER JOIN tb_kelas b ON a.kelas = b.id_kelas WHERE a.nisn = '$nisn'");
 $dt = mysqli_fetch_assoc($query);
@@ -251,7 +251,7 @@ $pdf->Cell(65, 0, $dt['nisn'], 0, 0, 'L');
 
 $pdf->Cell(50, 0, 'Semester', 0, 0, 'L');
 $pdf->Cell(5, 0, ':', 0, 0, 'C');
-$pdf->Cell(25, 0, 1 . '(Satu)', 0, 0, 'L');
+$pdf->Cell(25, 0, $smt, 0, 0, 'L');
 
 $pdf->ln(7);
 
